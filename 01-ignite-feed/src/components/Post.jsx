@@ -34,12 +34,22 @@ export function Post() {
           <a href="#nlw">#nlw</a>
           {' '}
           <a href="#rocketseat">#rocketseat</a>
-        </p>
-        {/* <p><a href="#">👉 jane.design/doctorcare</a></p>
-        <p><a href="#novoprojeto">#novoprojeto</a></p>
-        <p><a href="#nlw">#nlw</a></p>
-        <p><a href="#rocketseat">#rocketseat</a></p> */}
+        </p>        
       </div>
+
+      <form className={styles.commentForm}>
+        <strong>Deixe seu Feedback</strong>
+
+        <textarea 
+          placeholder="Escreva um comentário..."
+        />
+
+        <footer>
+          <button type="submit">
+            Publicar
+          </button>
+        </footer>
+      </form>
     </article>
   )
 }
