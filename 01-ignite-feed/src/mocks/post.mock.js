@@ -1,18 +1,28 @@
 import { faker } from '@faker-js/faker';
 
+function getPublishedDate(name) {
+  if (name.length % 2 === 0) {
+    return faker.date.past();
+  }
+
+  return faker.date.recent();
+}
+
 export const PostMock = () => {
+  const name =  faker.name.findName();
+
   return  {
     id: faker.datatype.uuid(),
     author: {
       avatarUrl: faker.image.avatar(),
-      name: faker.name.findName(),
+      name,
       role: faker.name.jobTitle(),
     },
-    publishAt:faker.date.recent(),
+    publishAt: getPublishedDate(name),
     content: [
-      { type: 'paragraph', content: 'Fala galera 👋' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
-      { type: 'link', content: '👉 jane.design/doctorcare' },
+      { id: faker.datatype.uuid(), type: 'paragraph', content: 'Fala galera 👋' },
+      { id: faker.datatype.uuid(), type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
+      { id: faker.datatype.uuid(), type: 'link', content: '👉 jane.design/doctorcare' },
     ]
   }
 }
