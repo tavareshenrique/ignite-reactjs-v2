@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker';
+import { commentMock } from './comment.mock';
 
 function getPublishedDate(name) {
   if (name.length % 2 === 0) {
@@ -8,7 +9,7 @@ function getPublishedDate(name) {
   return faker.date.recent();
 }
 
-export const PostMock = () => {
+export const postMock = () => {
   const name =  faker.name.findName();
 
   return  {
@@ -23,6 +24,9 @@ export const PostMock = () => {
       { id: faker.datatype.uuid(), type: 'paragraph', content: 'Fala galera 👋' },
       { id: faker.datatype.uuid(), type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
       { id: faker.datatype.uuid(), type: 'link', content: '👉 jane.design/doctorcare' },
-    ]
+    ],
+    comments: Array.from({ length: faker.random.numeric() }, () => {
+      return commentMock();
+    }),
   }
 }

@@ -1,15 +1,28 @@
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 import { HandsClapping, Trash } from 'phosphor-react';
 
 import { Avatar } from './Avatar';
 
 import styles from './Comment.module.css';
 
-export function Comment() {
+export function Comment({ comment }) {
+  const { author, publishAt, content } = comment;
+
+  const publishedDateFormatted = format(new Date(publishAt), "d 'de' LLLL 'de' yyyy 'às' HH:mm'h'", {
+    locale: ptBR,
+  });
+
+  const publishedDateRelativeToNow = formatDistanceToNow(new Date(publishAt), {
+    locale: ptBR,
+    addSuffix: true,
+  });
+
   return (
     <div className={styles.comment}>
       <Avatar 
-         src="https://avatars.githubusercontent.com/u/27022914?v=4" 
-         alt="Henrique Tavares"
+         src={author.avatarUrl}
+         alt={author.name}
          borderless
       />
 
@@ -17,9 +30,13 @@ export function Comment() {
         <div className={styles.commentContent} >
           <header>
             <div className={styles.authorAndTime}>
-              <strong>Henrique Tavares</strong>
-              <time title='06 de Junho às 18:32:16' dateTime="2022-06-06 18:32:16"  className={styles.date}>
-                Cerca de 1h atrás
+              <strong>{author.name}</strong>
+              <time 
+                className={styles.date}
+                title={publishedDateFormatted} 
+                dateTime={new Date(publishAt).toISOString()}  
+              >
+                {publishedDateRelativeToNow}
               </time>
             </div>
 
@@ -28,7 +45,9 @@ export function Comment() {
             </button>
           </header>
 
-          <p>Muito bom!</p>
+          {content.map((line) => (
+           <p key={line.id}>{line.content}</p>
+          ))}   
         </div>
 
         <footer>
