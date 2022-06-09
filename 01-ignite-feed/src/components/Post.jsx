@@ -3,19 +3,19 @@ import { Comment } from './Comment'
 
 import styles from './Post.module.css'
 
-export function Post() {
+export function Post({ post }) {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
           <Avatar
-            src="https://avatars.githubusercontent.com/u/27022914?v=4" 
-            alt="Henrique Tavares"
+            src={post.author.avatarUrl} 
+            alt={post.author.name}
           />
 
           <div className={styles.authorInfo}>
-            <strong>Henrique Tavares</strong>
-            <span>Front-End Developer</span>
+            <strong>{post.author.name} </strong>
+            <span>{post.author.role}</span>
           </div>
         </div>
 

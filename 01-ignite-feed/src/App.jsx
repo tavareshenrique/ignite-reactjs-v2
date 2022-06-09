@@ -1,21 +1,43 @@
+import { useEffect, useState } from "react";
 
-import { Header } from './components/Header'
-import { Sidebar } from './components/Sidebar'
-import { Post } from './components/Post'
+import './services/mirage';
 
-import './global.css'
+import { Header } from './components/Header';
+import { Sidebar } from './components/Sidebar';
+import { Post } from './components/Post';
 
-import styles from './App.module.css'
+import './global.css';
+
+import styles from './App.module.css';
 
 function App() {
+  const [posts, setPosts] = useState([]);
+  const [loadingPosts, setLoadingPosts] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/posts")
+      .then((res) => res.json())
+      .then((json) => {
+        setPosts(json.posts);
+        setLoadingPosts(false);
+      })
+  }, [])
+
   return (
     <>
+      {console.log('posts', posts)}
       <Header />
 
       <div className={styles.wrapper} >
         <Sidebar />
         <main>
-          <Post />
+          {
+            loadingPosts 
+            ? <p>Carregando...</p> : 
+            <>
+              {posts.map((post) => <Post key={post.id} post={post} />)}
+            </>
+          }          
         </main>
       </div>
     </>
