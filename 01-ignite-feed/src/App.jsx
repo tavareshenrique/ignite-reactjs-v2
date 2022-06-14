@@ -25,7 +25,6 @@ function App() {
 
   return (
     <>
-      {console.log('posts', posts)}
       <Header />
 
       <div className={styles.wrapper} >
