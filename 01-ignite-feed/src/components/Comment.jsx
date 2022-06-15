@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { HandsClapping, Trash } from 'phosphor-react';
@@ -12,9 +13,13 @@ export function Comment({ comment, onDeleteComment }) {
 
   const [clapCount, setClapCount] = useState(0);
 
-  const publishedDateFormatted = format(new Date(publishAt), "d 'de' LLLL 'de' yyyy 'às' HH:mm'h'", {
-    locale: ptBR,
-  });
+  const publishedDateFormatted = format(
+    new Date(publishAt),
+    "d 'de' LLLL 'de' yyyy 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    }
+  );
 
   const publishedDateRelativeToNow = formatDistanceToNow(new Date(publishAt), {
     locale: ptBR,
@@ -31,28 +36,24 @@ export function Comment({ comment, onDeleteComment }) {
 
   return (
     <div className={styles.comment}>
-      <Avatar 
-         src={author.avatarUrl}
-         alt={author.name}
-         borderless
-      />
+      <Avatar src={author.avatarUrl} alt={author.name} borderless />
 
       <div className={styles.commentBox}>
-        <div className={styles.commentContent} >
+        <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
               <strong>{author.name}</strong>
-              <time 
+              <time
                 className={styles.date}
-                title={publishedDateFormatted} 
-                dateTime={new Date(publishAt).toISOString()}  
+                title={publishedDateFormatted}
+                dateTime={new Date(publishAt).toISOString()}
               >
                 {publishedDateRelativeToNow}
               </time>
             </div>
 
-            <button 
-              type="button" 
+            <button
+              type="button"
               title="Deleter Comentário"
               onClick={handleDeleteComment}
             >
@@ -61,17 +62,35 @@ export function Comment({ comment, onDeleteComment }) {
           </header>
 
           {content.map((line) => (
-           <p key={line.id}>{line.content}</p>
-          ))}   
+            <p key={line.id}>{line.content}</p>
+          ))}
         </div>
 
         <footer>
-          <button onClick={handleClapComment} >
+          <button type="button" onClick={handleClapComment}>
             <HandsClapping />
             Aplaudir <span>{clapCount}</span>
           </button>
         </footer>
       </div>
     </div>
-  )
+  );
 }
+
+Comment.propTypes = {
+  comment: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    author: {
+      name: PropTypes.string.isRequired,
+      avatarUrl: PropTypes.string.isRequired,
+    },
+    publishAt: PropTypes.string.isRequired,
+    content: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+  onDeleteComment: PropTypes.func.isRequired,
+};
