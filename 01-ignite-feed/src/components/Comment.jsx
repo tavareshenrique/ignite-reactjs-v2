@@ -1,6 +1,7 @@
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { HandsClapping, Trash } from 'phosphor-react';
+import { useState } from 'react';
 
 import { Avatar } from './Avatar';
 
@@ -8,6 +9,8 @@ import styles from './Comment.module.css';
 
 export function Comment({ comment, onDeleteComment }) {
   const { author, publishAt, content } = comment;
+
+  const [clapCount, setClapCount] = useState(0);
 
   const publishedDateFormatted = format(new Date(publishAt), "d 'de' LLLL 'de' yyyy 'às' HH:mm'h'", {
     locale: ptBR,
@@ -20,6 +23,10 @@ export function Comment({ comment, onDeleteComment }) {
 
   function handleDeleteComment() {
     onDeleteComment(comment.id);
+  }
+
+  function handleClapComment() {
+    setClapCount((oldClapCountValue) => oldClapCountValue + 1);
   }
 
   return (
@@ -59,9 +66,9 @@ export function Comment({ comment, onDeleteComment }) {
         </div>
 
         <footer>
-          <button>
+          <button onClick={handleClapComment} >
             <HandsClapping />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{clapCount}</span>
           </button>
         </footer>
       </div>
