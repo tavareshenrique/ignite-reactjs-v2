@@ -80,10 +80,10 @@ export function Comment({ comment, onDeleteComment }) {
 Comment.propTypes = {
   comment: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    author: {
+    author: PropTypes.shape({
       name: PropTypes.string.isRequired,
       avatarUrl: PropTypes.string.isRequired,
-    },
+    }).isRequired,
     publishAt: PropTypes.string.isRequired,
     content: PropTypes.arrayOf(
       PropTypes.shape({
