@@ -6,7 +6,7 @@ import { Avatar } from './Avatar';
 
 import styles from './Comment.module.css';
 
-export function Comment({ comment }) {
+export function Comment({ comment, onDeleteComment }) {
   const { author, publishAt, content } = comment;
 
   const publishedDateFormatted = format(new Date(publishAt), "d 'de' LLLL 'de' yyyy 'às' HH:mm'h'", {
@@ -17,6 +17,10 @@ export function Comment({ comment }) {
     locale: ptBR,
     addSuffix: true,
   });
+
+  function handleDeleteComment() {
+    onDeleteComment(comment.id);
+  }
 
   return (
     <div className={styles.comment}>
@@ -40,7 +44,11 @@ export function Comment({ comment }) {
               </time>
             </div>
 
-            <button type="button" title="Deleter Comentário">
+            <button 
+              type="button" 
+              title="Deleter Comentário"
+              onClick={handleDeleteComment}
+            >
               <Trash size={24} />
             </button>
           </header>

@@ -39,6 +39,10 @@ export function Post({ post }) {
     setNewCommentText(event.target.value);
   }
 
+  function deleteComment() {
+    setComments(comments.filter(comment => comment.id !== comment.id));
+  }
+
   return (
     <article className={styles.post}>
       <header>
@@ -92,7 +96,11 @@ export function Post({ post }) {
 
       <div className={styles.commentList}>
         {comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
+          <Comment 
+            key={comment.id}
+            comment={comment} 
+            onDeleteComment={deleteComment}
+          />
         ))}
       </div>
     </article>
