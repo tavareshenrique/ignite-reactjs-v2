@@ -45,8 +45,8 @@ export function Post({ post }) {
     event.target.setCustomValidity('Esse campo é obrigatório.')
   }
 
-  function deleteComment() {
-    setComments(comments.filter(comment => comment.id !== comment.id));
+  function deleteComment(commentId) {
+    setComments(comments.filter((comment) => comment.id !== commentId));
   }
 
   const inNewCommentEmpty = newCommentText.length === 0;
