@@ -13,8 +13,7 @@ export const postMock = ({ isFirst = false }) => {
   const author = isFirst
     ? {
         name: 'Kinkinha, A Pitica',
-        avatar:
-          'https://scontent.fsdu1-1.fna.fbcdn.net/v/t39.30808-6/273791462_993172601592251_3131606499545440989_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=8Qsr96YNlBkAX83Ua5L&_nc_ht=scontent.fsdu1-1.fna&oh=00_AT--_XtnTudpSb1mBDgZWRaEOJ_7LuHyskDJfK7XsxRrJw&oe=62AEAE05',
+        avatar: faker.image.avatar(),
         role: 'Teacher | Economista',
       }
     : {
