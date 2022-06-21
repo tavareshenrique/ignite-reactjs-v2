@@ -26,6 +26,8 @@ module.exports = {
       },
     ],
     'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'react/jsx-props-no-spreading': 'off',
   },
   settings: {
     'import/resolver': {

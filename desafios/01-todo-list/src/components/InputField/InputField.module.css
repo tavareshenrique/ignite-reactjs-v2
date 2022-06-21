@@ -1,0 +1,12 @@
+.container {
+  position: absolute;
+  top: 176px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container button {
+  margin-left: 0.5rem;
+}
