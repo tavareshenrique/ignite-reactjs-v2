@@ -4,6 +4,7 @@ import { useToDo } from '../../../hooks/useToDo';
 import clipboardImg from '../../../assets/clipboard.svg';
 
 import styles from './ToDo.module.css';
+import { Card } from './Card/Card';
 
 export default function ToDo() {
   const { isEmpty } = useToDo();
@@ -27,7 +28,7 @@ export default function ToDo() {
 
   return (
     <section className={styles.wrapper}>
-      {isEmpty ? <EmptyListComponent /> : <h1>Alexia</h1>}
+      {isEmpty ? <EmptyListComponent /> : <Card />}
     </section>
   );
 }

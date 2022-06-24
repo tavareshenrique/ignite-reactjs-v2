@@ -1,14 +1,41 @@
+import React, { useCallback, useState } from 'react';
+
+import { useToDo } from '../../hooks/useToDo';
+
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
 
 import styles from './InputField.module.css';
 
 export function InputField() {
-  return (
-    <div className={styles.container}>
-      <Input placeholder="Adicione uma nova tarefa" />
+  const { addTodo } = useToDo();
 
-      <Button>Criar</Button>
+  const [newTodo, setNewTodo] = useState('');
+
+  const handleChangeTodo = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setNewTodo(event.target.value);
+    },
+    []
+  );
+
+  const handleCreateToDo = useCallback(() => {
+    if (newTodo !== '') {
+      addTodo(newTodo.trim());
+
+      setNewTodo('');
+    }
+  }, [addTodo, newTodo]);
+
+  return (
+    <div onSubmit={handleCreateToDo} className={styles.container}>
+      <Input
+        value={newTodo}
+        onChange={handleChangeTodo}
+        placeholder="Adicione uma nova tarefa"
+      />
+
+      <Button onClick={handleCreateToDo}>Criar</Button>
     </div>
   );
 }
