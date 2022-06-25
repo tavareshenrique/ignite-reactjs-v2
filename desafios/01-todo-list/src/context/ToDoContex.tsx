@@ -19,9 +19,12 @@ type TodoType = {
 
 export interface IToDoContextData {
   todos: TodoType[];
+  totalTodos: number;
+  totalDoneTodos: number;
   isEmpty: boolean;
   addTodo: (text: string) => void;
   toggleTodo: (id: string) => void;
+  remmoveTodo: (id: string) => void;
 }
 
 interface IToDoProviderProps {
@@ -46,6 +49,13 @@ export function ToDoProvider({ children }: IToDoProviderProps) {
   });
 
   const isEmpty = todos.length === 0;
+
+  const totalTodos = todos.length;
+
+  const totalDoneTodos = useMemo(
+    () => todos.filter((todo) => todo.done).length,
+    [todos]
+  );
 
   const addTodo = useCallback(
     (text: string) => {
@@ -79,14 +89,35 @@ export function ToDoProvider({ children }: IToDoProviderProps) {
     [todos]
   );
 
+  const remmoveTodo = useCallback(
+    (id: string) => {
+      const removeTodos = todos.filter((todo) => todo.id !== id);
+
+      setTodos(removeTodos);
+      saveInStorage(KEY_TODOS, removeTodos);
+    },
+    [todos]
+  );
+
   const value = useMemo(
     () => ({
       todos,
+      totalTodos,
+      totalDoneTodos,
       isEmpty,
       addTodo,
       toggleTodo,
+      remmoveTodo,
     }),
-    [addTodo, isEmpty, todos, toggleTodo]
+    [
+      addTodo,
+      isEmpty,
+      remmoveTodo,
+      todos,
+      toggleTodo,
+      totalDoneTodos,
+      totalTodos,
+    ]
   );
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;

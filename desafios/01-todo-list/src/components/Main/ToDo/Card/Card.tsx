@@ -5,7 +5,7 @@ import { useToDo } from '../../../../hooks/useToDo';
 import styles from './Card.module.css';
 
 export function Card() {
-  const { toggleTodo, todos } = useToDo();
+  const { toggleTodo, todos, remmoveTodo } = useToDo();
 
   return (
     <ul className={styles.container}>
@@ -31,7 +31,12 @@ export function Card() {
             <p>{todo.text}</p>
           </div>
 
-          <button className={styles.trash} type="button" title="Deletar ToDo">
+          <button
+            onClick={() => remmoveTodo(todo.id)}
+            className={styles.trash}
+            type="button"
+            title="Deletar ToDo"
+          >
             <Trash size={20} />
           </button>
         </li>
