@@ -18,6 +18,4 @@ export const ButtonContainer = styled.button<IButtonContainerProps>`
   height: 40px;
 
   background-color: ${props => props.theme.primary};
-
-  /* background-color: ${props => buttonVariant[props.variant]}; */
 `;
