@@ -74,6 +74,12 @@ export default function Home() {
     }
   }, [activeCycle]);
 
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `${minutes}:${seconds}`;
+    }
+  }, [activeCycle, minutes, seconds, task]);
+
   function handleCreateNewCycle(data: NewCycleFormData) {
     const newCycle: ICycle = {
       id: new Date().getTime().toString(),
@@ -84,6 +90,7 @@ export default function Home() {
 
     setCycles((oldCyclesValues) => [...oldCyclesValues, newCycle]);
     setActiveCycleId(newCycle.id);
+    setAmoundSecondsPassed(0);
 
     reset();
   }
