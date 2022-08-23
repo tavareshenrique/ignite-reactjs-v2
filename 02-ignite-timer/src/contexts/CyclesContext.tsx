@@ -87,8 +87,6 @@ export function CyclesContextProvider({
     setCycles((oldCyclesValues) => [...oldCyclesValues, newCycle]);
     setActiveCycleId(newCycle.id);
     setAmoundSecondsPassed(0);
-
-    // reset();
   }
 
   return (
