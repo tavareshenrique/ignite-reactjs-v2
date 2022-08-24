@@ -29,21 +29,53 @@ interface ICyclesContextProviderProps {
   children: ReactNode;
 }
 
+interface ICyclesState {
+  cycles: Cycle[];
+  activeCycleId: string | null;
+}
+
 export const CyclesContext = createContext({} as ICyclesContextType);
 
 export function CyclesContextProvider({
   children,
 }: ICyclesContextProviderProps) {
-  const [cycles, dispatch] = useReducer((state: Cycle[], action: any) => {
-    if (action.type === "ADD_NEW_CYCLE") {
-      return [...state, action.payload.newCycle];
+  const [cyclesState, dispatch] = useReducer(
+    (state: ICyclesState, action: any) => {
+      if (action.type === "ADD_NEW_CYCLE") {
+        return {
+          ...state,
+          cycles: [...state.cycles, action.payload.newCycle],
+          activeCycleId: action.payload.newCycle.id,
+        };
+      }
+
+      if (action.type === "INTERRUPT_CURRENT_CYCLE") {
+        return {
+          ...state,
+          cycles: state.cycles.map((cycle) => {
+            if (cycle.id === state.activeCycleId) {
+              return {
+                ...cycle,
+                finishedDate: new Date(),
+              };
+            }
+            return cycle;
+          }),
+          activeCycleId: null,
+        };
+      }
+
+      return state;
+    },
+    {
+      cycles: [],
+      activeCycleId: null,
     }
+  );
 
-    return state;
-  }, []);
-
-  const [activeCycleId, setActiveCycleId] = useState<string | null>(null);
   const [amoundSecondsPassed, setAmoundSecondsPassed] = useState(0);
+
+  const { activeCycleId, cycles } = cyclesState;
 
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId);
 
@@ -92,8 +124,6 @@ export function CyclesContextProvider({
         activeCycleId,
       },
     });
-
-    setActiveCycleId(null);
   }
 
   function createNewCycle(data: ICreateCycleData) {
@@ -112,7 +142,6 @@ export function CyclesContextProvider({
     });
 
     // setCycles((oldCyclesValues) => [...oldCyclesValues, newCycle]);
-    setActiveCycleId(newCycle.id);
     setAmoundSecondsPassed(0);
   }
 
