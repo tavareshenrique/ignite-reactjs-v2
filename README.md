@@ -16,10 +16,10 @@
 
 - [Projetos](#rocket-projetos)
   - [Chapter I](#one-chapter-i)
-    - [Ignite Feed](#github-explorer)
-    - [Ignite Feed em TypeScript](#github-explorer)
+    - [Ignite Feed](#ignite-feed)
+    - [Ignite Feed em TypeScript](#ignite-feed-em-typescript)
   - [Chapter II](#two-chapter-ii)
-    - [Ignite Timer](#dt-money)
+    - [Ignite Timer](#ignite-timer)
 - [Desafios](#atom_symbol-desafios)
   - [Chapter I](#one-chapter-i)
 - [Autores](#computer-autores)
