@@ -23,7 +23,7 @@ export interface ICyclesState {
 
 export interface IActionType {
   type: ActionTypes;
-  payload: {
+  payload?: {
     newCycle: Cycle;
   };
 }

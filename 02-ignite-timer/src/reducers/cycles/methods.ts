@@ -4,8 +4,10 @@ import { IActionType, ICyclesState } from "./reducer";
 
 export function addNewCycleMethod(state: ICyclesState, action: IActionType) {
   return produce(state, (draft) => {
-    draft.cycles.push(action.payload.newCycle);
-    draft.activeCycleId = action.payload.newCycle.id;
+    if (action.payload) {
+      draft.cycles.push(action.payload.newCycle);
+      draft.activeCycleId = action.payload.newCycle.id;
+    }
   });
 }
 
