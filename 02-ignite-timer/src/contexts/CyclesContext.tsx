@@ -48,7 +48,7 @@ export function CyclesContextProvider({
       cycles: [],
       activeCycleId: null,
     },
-    () => {
+    (state) => {
       const storedStateAsJSON = localStorage.getItem(CYCLES_STATE_STORAGE_KEY);
 
       if (storedStateAsJSON) {
@@ -56,8 +56,12 @@ export function CyclesContextProvider({
 
         return storedState;
       }
+
+      return state;
     }
   );
+
+  console.log("cyclesState", cyclesState);
 
   const { activeCycleId, cycles } = cyclesState;
 
