@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  O <b>Ignite Timer</b> é o projeto do segundo módulo do curso Ignite ReactJS da Rocketseat..
+  O <b>Ignite Timer</b> é o projeto do segundo módulo do curso Ignite ReactJS da Rocketseat.
 </p>
 
 ---
