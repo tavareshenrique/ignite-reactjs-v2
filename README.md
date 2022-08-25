@@ -1,81 +1,65 @@
-<h1 align="center">
-  <img alt="Ignite Logo" title="Ignite Logo" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/97b0af9865f69abd7fdb1b310f3b54bf5567b006/02-ignite-timer/public/logo.svg" width="100px" />
-</h1>
-
 <p align="center">
-  <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/tavareshenrique/ignite-reactjs-v2?color=3bb37e">
-  <img alt="Made by Henrique Tavares" src="https://img.shields.io/badge/made%20by-Henrique Tavares-%20?color=3bb37e">
-  <img alt="Project top programing language" src="https://img.shields.io/github/languages/top/tavareshenrique/ignite-reactjs-v2?color=95dac2">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/tavareshenrique/ignite-reactjs-v2?color=95dac2">
-  <img alt="GitHub license" src="https://img.shields.io/github/license/tavareshenrique/ignite-reactjs-v2?color=95dac2">
+   <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/7fa4da36305a1e47c53b9af19c17a6866fdbd570/%40assets/logo.svg" alt="Ignite" width="180"/>
 </p>
 
 <p align="center">
-  <a href="#information_source-como-executar">ℹ️ Como Executar?</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#rocket-tecnologias">🚀 Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#computer-autores">💻 Autores</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">📝 Licença</a>
+   <a href="https://www.linkedin.com/in/tavareshenrique/">
+      <img alt="Henrique Tavares" src="https://img.shields.io/badge/-Henrique Tavares-01B755?style=flat&logo=Linkedin&logoColor=white" />
+   </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-01B755">
 </p>
+
+> Repositório onde se encontra todos os projetos desenvolvidos na trilha de **ReactJS do Ignite V2** da [Rocketseat](https://github.com/Rocketseat).
+
+# :pushpin: Conteúdo
+
+- [Projetos](#rocket-projetos)
+  - [Chapter I](#one-chapter-i)
+    - [Ignite Feed](#github-explorer)
+    - [Ignite Feed em TypeScript](#github-explorer)
+  - [Chapter II](#two-chapter-ii)
+    - [Ignite Timer](#dt-money)
+- [Desafios](#atom_symbol-desafios)
+  - [Chapter I](#one-chapter-i)
+- [Autores](#computer-autores)
+- [Licença](#closed_book-licença)
+
+# :rocket: Projetos
+
+## :one: Chapter I
+
+### Ignite Feed
 
 <p align="center">
-  O <b>Ignite Feed</b> é o segundo projeto do primeiro módulo do curso Ignite ReactJS da Rocketseat. A diferença para o primeiro projeto é que esse está totalmente em TypeScript.
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/01-ignite-feed">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/01-ignite-feed/src/assets/previews/home.png" alt="Ignite Feed" width="700"/>
+   </a>
 </p>
 
----
+### Ignite Feed em TypeScript
 
-<div align="center">
-  <img alt="Imagem da Home" title="Imagem da Home" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/01-ignite-feed/src/assets/previews/home.png" width="800" />
-</div>
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/01-ignite-feed-ts">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/01-ignite-feed/src/assets/previews/home.png" alt="Github Explorer" width="700"/>
+   </a>
+</p>
 
----
+## :two: Chapter II
 
-> 🧪 Essa aplicação não possuirá **Testes Unitários**, **Integração** e **E2E** por não ser o foco do estudo, mas está pronta para ser executada.
+### Ignite Timer
 
-# :information_source: Como Executar?
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/02-ignite-timer">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/02-ignite-timer/src/assets/previews/cycle.png" alt="DT Money" width="700"/>
+   </a>
+</p>
 
-> **1.0.** Clone o Repositório:
+# :atom_symbol: Desafios
 
-```bash
-https://github.com/tavareshenrique/ignite-reactjs-v2.git
+## :one: Chapter I
 
-```
-> **1.1.** Acesse a pasta do projeto:
-
-```bash
-cd ignite-reactjs-v2
-```
-
-> **1.2.** Acesse a pasta do Ignite Feed TS:
-
-```bash
-cd 01-ignite-feed-ts
-```
-
-> **1.3.** Instale as dependências:
-
-```bash
-yarn
-```
-
-> **1.4.** Inicie o Serviço:
-
-```bash
-yarn dev
-```
-
-> ➡️ Acesse [http://localhost:3000](http://localhost:3000) para acessar a aplicação web.
-
-
-# :rocket: Tecnologias
-
-- [TypeScript](https://www.typescriptlang.org/)
-- [React](https://pt-br.reactjs.org/)
-- [Vite](https://vitejs.dev/)
-- [Phosphor Icons](https://phosphoricons.com/)
-- [MirageJS](https://miragejs.com/)
-- [date-fns](https://date-fns.org/)
-- [ESLint](https://eslint.org/)
-
+[ToDo List](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/01-todo-list): é o primeiro desafio do primeiro módulo do curso Ignite ReactJS da Rocketseat.
 
 # :computer: Autores
 
@@ -92,24 +76,24 @@ yarn dev
        <br />
        <a href="https://www.linkedin.com/in/tavareshenrique/" title="Linkedin">@tavareshenrique</a>
        <br />
-       <a href="https://github.com/tavareshenrique/go-barber-web-ts/commits?author=tavareshenrique" title="Code">💻</a>
+       <a href="https://github.com/tavareshenrique/fastfeet-api/commits?author=tavareshenrique" title="Code">💻</a>
     </td>
     <td align="center">
-      <a href="http://github.com/rocketseat/">
-        <img src="https://avatars.githubusercontent.com/u/28929274?s=200&v=4" width="100px;" alt="Logo da Rocketseat"/>
+      <a href="http://github.com/tavareshenrique/">
+        <img src="https://avatars0.githubusercontent.com/u/28929274?s=200&v=4" width="100px;" alt="Henrique Tavares"/>
         <br />
         <sub>
           <b>Rocketseat</b>
         </sub>
        </a>
        <br />
-       <a href="http://github.com/rocketseat/" title="Linkedin">@rocketseat</a>
+       <a href="https://github.com/Rocketseat" title="Linkedin">@Rocketseat</a>
        <br />
-       <a href="https://github.com/tavareshenrique/go-barber-web-ts/commits?author=tavareshenrique" title="Education Platform">🚀</a>
+       <a href="https://github.com/tavareshenrique/fastfeet-api/commits?author=tavareshenrique" title="Creators">🚀</a>
     </td>
   </tr>
 </table>
 
-# :memo: Licença
+# :closed_book: Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo de [licença](https://github.com/tavareshenrique/ignite-reactjs-v2/blob/main/01-ignite-feed-ts/LICENSE.md) para mais detalhes.
+Este projeto está sob a licença [MIT](./LICENSE).
