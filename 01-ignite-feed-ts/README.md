@@ -29,7 +29,7 @@
 
 ---
 
-> 🧪 Essa aplicação não possuirá **Testes Unitários**, **Integração** e **E2E** por não ser o foco do estudo, mas está pronta para ser executada. 🧪
+> 🧪 Essa aplicação não possuirá **Testes Unitários**, **Integração** e **E2E** por não ser o foco do estudo, mas está pronta para ser executada.
 
 # :information_source: Como Executar?
 
@@ -112,4 +112,4 @@ yarn dev
 
 # :memo: Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo de [licença](https://github.com/tavareshenrique/ignite-reactjs-v2/blob/main/01-ignite-feed/LICENSE.md) para mais detalhes.
+Este projeto está licenciado sob a licença MIT - veja o arquivo de [licença](https://github.com/tavareshenrique/ignite-reactjs-v2/blob/main/01-ignite-feed-ts/LICENSE.md) para mais detalhes.
