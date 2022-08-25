@@ -68,7 +68,6 @@ yarn dev
 
 # :rocket: Tecnologias
 
-- [TypeScript](https://www.typescriptlang.org/)
 - [React](https://pt-br.reactjs.org/)
 - [Vite](https://vitejs.dev/)
 - [Phosphor Icons](https://phosphoricons.com/)
