@@ -23,6 +23,14 @@
 
 ---
 
+<div align="center">
+  <img alt="Imagem da Home" title="Imagem da Home" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/02-ignite-timer/02-ignite-timer/src/assets/previews/cycle.png" width="350" />
+  <img alt="Imagem da Página de Histórico" title="Imagem da Página de Histórico" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/02-ignite-timer/02-ignite-timer/src/assets/previews/history.png" width="350" />
+  <img alt="Imagem do Ciclo" title="Imagem do Ciclo" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/02-ignite-timer/02-ignite-timer/src/assets/previews/home.png" width="350" />
+</div>
+
+---
+
 > 🧪 Essa aplicação não possuirá **Testes Unitários**, **Integração** e **E2E** por não ser o foco do estudo, mas está pronta para ser executada. 🧪
 
 # :information_source: Como Executar?
