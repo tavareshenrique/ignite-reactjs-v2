@@ -11,5 +11,11 @@
 </p>
 
 <p align="center">
-  Para acessar o repositório do desafio, acesse: <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-01-todo-list" target="_blank">ToDo App Challenge</a>
+  Para acessar o repositório do desafio, acesse: <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-01-todo-list" target="_blank"><b>ToDo App Challenge</b></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-challenge-01-todo-list/main/src/assets/previews/preview.png" alt="ToDo App Challenge" width="700"/>
+   </a>
 </p>
