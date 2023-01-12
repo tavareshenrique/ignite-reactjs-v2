@@ -22,6 +22,7 @@
     - [Ignite Timer](#ignite-timer)
 - [Desafios](#atom_symbol-desafios)
   - [Chapter I](#one-chapter-i)
+  - [Chapter II](#two-chapter-ii)
 - [Autores](#computer-autores)
 - [Licença](#closed_book-licença)
 
@@ -41,7 +42,7 @@
 
 <p align="center">
   <a href="https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/01-ignite-feed-ts">
-     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/01-ignite-feed/src/assets/previews/home.png" alt="Github Explorer" width="700"/>
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/01-ignite-feed/src/assets/previews/home.png" alt="Ignite Feed" width="700"/>
    </a>
 </p>
 
@@ -51,7 +52,7 @@
 
 <p align="center">
   <a href="https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/02-ignite-timer">
-     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/02-ignite-timer/src/assets/previews/cycle.png" alt="DT Money" width="700"/>
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/02-ignite-timer/src/assets/previews/cycle.png" alt="Ignite Timer" width="700"/>
    </a>
 </p>
 
@@ -59,7 +60,32 @@
 
 ## :one: Chapter I
 
-[ToDo List](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/01-todo-list): é o primeiro desafio do primeiro módulo do curso Ignite ReactJS da Rocketseat.
+[ToDo List](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/01-todo-list): é o primeiro desafio do primeiro módulo do curso Ignite ReactJS v2 da Rocketseat.
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-challenge-01-todo-list/main/src/assets/previews/preview.png" alt="ToDo App Challenge" width="700"/>
+   </a>
+</p>
+
+## :two: Chapter II
+
+[Coffee Delivery](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/02-coffee-delivery): é o segundo desafio módulo do curso Ignite ReactJS v2 da Rocketseat.
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery/main/src/assets/preview/Coffee1.gif" alt="Tela Home do Coffee Delivery" width="700"/>
+   </a>
+</p>
+
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery/main/src/assets/preview/Coffee2.gif" alt="Tela Checkout do Coffee Delivery" width="700"/>
+   </a>
+</p>
+
+
 
 # :computer: Autores
 
