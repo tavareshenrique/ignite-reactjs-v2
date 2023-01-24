@@ -1,11 +1,10 @@
-import { Header } from "../../components";
+import { Header, Summary } from '../../components';
 
-
-export function Transactions() {
-	return (
+export function Transactions () {
+  return (
 		<div>
 			<Header />
-			<h1>Transactions</h1>
+			<Summary />
 		</div>
-	);
+  );
 }
