@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { Maybe } from '../@types/maybe';
 
 type TTransactionType = 'income' | 'outcome';
 
@@ -13,7 +12,7 @@ export interface ITransaction {
 }
 
 interface ITransactionContextType {
-  transactions: Maybe<ITransaction[]>;
+  transactions: ITransaction[];
 }
 
 interface ITransactionsProviderProps {
@@ -23,17 +22,17 @@ interface ITransactionsProviderProps {
 export const TransactionsContext = createContext({} as ITransactionContextType);
 
 export function TransactionsProvider({ children }: ITransactionsProviderProps) {
-	const [transactions, setTransactions] = useState<ITransaction[] | null>(null);
-
-	async function loadTransactions() {
-		const response = await fetch('http://localhost:3333/transactions');
-
-		const data = await response.json();
-
-		setTransactions(data);
-	}
+	const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
 	useEffect(() => {
+		async function loadTransactions() {
+			const response = await fetch('http://localhost:3333/transactions');
+
+			const data = await response.json();
+
+			setTransactions(data);
+		}
+
 		loadTransactions();
 	}, []);
 
