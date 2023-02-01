@@ -23,6 +23,22 @@
       "category": "Educação",
       "price": 2000,
       "createdAt": "2022-07-30T19:30:44.505Z"
+    },
+    {
+      "category": "Alimentação",
+      "description": "Bolo de Pote",
+      "price": 8,
+      "type": "outcome",
+      "createdAt": "2023-02-01T23:29:37.199Z",
+      "id": 4
+    },
+    {
+      "category": "Salário",
+      "description": "Salário",
+      "price": 2000,
+      "type": "income",
+      "createdAt": "2023-02-01T23:44:36.248Z",
+      "id": 5
     }
   ]
 }

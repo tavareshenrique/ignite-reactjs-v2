@@ -4,7 +4,11 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
+import { api } from '../../lib/axios';
+
 import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from './styles';
+import { useContext } from 'react';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
 
 const newTransactionFormSchema = z.object({
 	description: z.string(),
@@ -20,7 +24,8 @@ export function NewTransactionModal() {
 		control,
 		register,
 		handleSubmit,
-		formState: { isSubmitting }
+		formState: { isSubmitting },
+		reset
 	} = useForm<TNewTransactionFormInputs>({
 		resolver: zodResolver(newTransactionFormSchema),
 		defaultValues: {
@@ -28,8 +33,19 @@ export function NewTransactionModal() {
 		}
 	});
 
+	const { createTransaction } = useContext(TransactionsContext);
+
 	async function handleCreateNewTransaction(data: TNewTransactionFormInputs) {
-		console.log(data);
+		const { description, price, category, type } = data;
+
+		await createTransaction({
+			description,
+			price,
+			category,
+			type
+		});
+
+		reset();
 	}
 
 	return (
