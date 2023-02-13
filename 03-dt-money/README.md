@@ -18,15 +18,14 @@
 </p>
 
 <p align="center">
-  O <b>Ignite Timer</b> é o projeto do segundo módulo do curso Ignite ReactJS da Rocketseat.
+  O <b>DT Money</b> é o projeto do terceiro módulo do curso Ignite ReactJS da Rocketseat.
 </p>
 
 ---
 
 <div align="center">
-  <img alt="Imagem da Home" title="Imagem da Home" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/02-ignite-timer/src/assets/previews/home.png" width="350" />
-  <img alt="Imagem da Página de Histórico" title="Imagem da Página de Histórico" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/02-ignite-timer/src/assets/previews/history.png" width="350" />
-  <img alt="Imagem do Ciclo" title="Imagem do Ciclo" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/02-ignite-timer/src/assets/previews/cycle.png" width="350" />
+  <img alt="Página Principal do Site" title="Imagem da Home" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/03-dt-money/src/assets/previews/preview-2.png" width="350" />
+  <img alt="Imagem " title="Exibição do Modal de Inserção de Transação" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/03-dt-money/src/assets/previews/preview-1.png" width="350" />
 </div>
 
 ---
@@ -50,19 +49,25 @@ cd ignite-reactjs-v2
 > **1.2.** Acesse a pasta do Ignite Timer:
 
 ```bash
-cd 02-ignite-timer
+cd 03-dt-money
 ```
 
 > **1.3.** Instale as dependências:
 
 ```bash
-yarn
+npm install
 ```
 
-> **1.4.** Inicie o Serviço:
+> **1.4.** Inicie o Server:
 
 ```bash
-yarn dev
+npm run dev:server
+```
+
+> **1.5.** Em Outro Terminal, Inicie o Serviço:
+
+```bash
+npm run dev
 ```
 
 > ➡️ Acesse [http://localhost:5173](http://localhost:5173) para acessar a aplicação web.
@@ -74,10 +79,13 @@ yarn dev
 - [React](https://pt-br.reactjs.org/)
 - [Vite](https://vitejs.dev/)
 - [Phosphor Icons](https://phosphoricons.com/)
-- [Immer](https://github.com/immerjs/immer)
 - [React Hook Form](https://github.com/react-hook-form/react-hook-form)
 - [Styled-Components](https://styled-components.com/)
 - [Zod](https://github.com/colinhacks/zod)
+- [RadixUI](https://www.radix-ui.com/)
+- [JSON Server](https://www.npmjs.com/package/json-server)
+- [Use Context Selector](https://github.com/dai-shi/use-context-selector)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
 - [ESLint](https://eslint.org/)
 
 
