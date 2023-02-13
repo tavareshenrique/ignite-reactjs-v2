@@ -24,8 +24,8 @@
 ---
 
 <div align="center">
-  <img alt="Página Principal do Site" title="Imagem da Home" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/03-dt-money/src/assets/previews/preview-2.png" width="350" />
-  <img alt="Imagem " title="Exibição do Modal de Inserção de Transação" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/03-dt-money/src/assets/previews/preview-1.png" width="350" />
+  <img alt="Página Principal do Site" title="Imagem da Home" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/03-dt-money/src/assets/previews/preview-2.png" width="600" />
+  <img alt="Imagem " title="Exibição do Modal de Inserção de Transação" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/03-dt-money/src/assets/previews/preview-1.png" width="600" />
 </div>
 
 ---
