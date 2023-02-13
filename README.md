@@ -21,7 +21,7 @@
   - [Chapter II](#two-chapter-ii)
     - [Ignite Timer](#ignite-timer)
   - [Chapter III](#three-chapter-iii)
-    - [DT-Money](#dt-timer)
+    - [DT-Money](#dt-money)
 - [Desafios](#atom_symbol-desafios)
   - [Chapter I](#one-chapter-i)
   - [Chapter II](#two-chapter-ii)
