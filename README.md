@@ -20,6 +20,8 @@
     - [Ignite Feed em TypeScript](#ignite-feed-em-typescript)
   - [Chapter II](#two-chapter-ii)
     - [Ignite Timer](#ignite-timer)
+  - [Chapter III](#three-chapter-iii)
+    - [DT-Money](#dt-timer)
 - [Desafios](#atom_symbol-desafios)
   - [Chapter I](#one-chapter-i)
   - [Chapter II](#two-chapter-ii)
@@ -56,11 +58,21 @@
    </a>
 </p>
 
+## :three: Chapter III
+
+### DT-Money
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/03-dt-money">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/03-dt-money/src/assets/previews/preview-2.png" alt="Pagina Inicial do DT-Money" width="700"/>
+   </a>
+</p>
+
 # :atom_symbol: Desafios
 
 ## :one: Chapter I
 
-[ToDo List](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/01-todo-list): é o primeiro desafio do primeiro módulo do curso Ignite ReactJS v2 da Rocketseat.
+[ToDo List](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/01-todo-list): é o **desafio** do **primeiro módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
 
 <p align="center">
   <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery">
@@ -70,7 +82,7 @@
 
 ## :two: Chapter II
 
-[Coffee Delivery](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/02-coffee-delivery): é o segundo desafio módulo do curso Ignite ReactJS v2 da Rocketseat.
+[Coffee Delivery](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/02-coffee-delivery): é o **desafio** do **segundo módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
 
 <p align="center">
   <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery">
@@ -84,8 +96,6 @@
      <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-challenge-02-coffee-delivery/main/src/assets/preview/Coffee2.gif" alt="Tela Checkout do Coffee Delivery" width="700"/>
    </a>
 </p>
-
-
 
 # :computer: Autores
 
