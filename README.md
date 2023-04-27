@@ -107,6 +107,7 @@
      <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-challenge-03-github-blog/main/public/previews/Github-Blog-Desktop.gif" alt="Tela Home e de Artigo do Github Blog" width="700"/>
    </a>
 </p>
+
 # :computer: Autores
 
 <table>
