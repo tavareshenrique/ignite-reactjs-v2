@@ -25,6 +25,7 @@
 - [Desafios](#atom_symbol-desafios)
   - [Chapter I](#one-chapter-i)
   - [Chapter II](#two-chapter-ii)
+  - [Chapter III](#three-chapter-iii)
 - [Autores](#computer-autores)
 - [Licença](#closed_book-licença)
 
@@ -97,6 +98,15 @@
    </a>
 </p>
 
+## :three: Chapter III
+
+[Github Blog](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/03-github-blog): é o **desafio** do **terceiro módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-03-github-blog">
+     <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-challenge-03-github-blog/main/public/previews/Github-Blog-Desktop.gif" alt="Tela Home e de Artigo do Github Blog" width="700"/>
+   </a>
+</p>
 # :computer: Autores
 
 <table>
