@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
 import Stripe from 'stripe';
@@ -6,10 +6,6 @@ import Stripe from 'stripe';
 import { useKeenSlider } from 'keen-slider/react';
 
 import { stripe } from '../lib/stripe';
-
-import ts1Image from '../assets/ts-1.png';
-import ts2Image from '../assets/ts-2.png';
-import ts3Image from '../assets/ts-3.png';
 
 import { HomeContainer, Product } from '../styles/pages/home';
 
@@ -38,8 +34,8 @@ export default function Home({ products }: IHomeProps) {
         <Product className="keen-slider__slide" key={product.id}>
           <Image
             src={product.imageUrl}
-            alt="Camiseta da Maratona Explorer - Modelo Preto com a imagem de um Astronauta no centro escrito Maratona Explorer por cima do Astronauta"
-            title="Camiseta da Maratona Explorer - Modelo Preto com a imagem de um Astronauta no centro escrito Maratona Explorer por cima do Astronauta"
+            alt={product.name}
+            title={product.name}
             width={520}
             height={520}
           />
@@ -53,7 +49,7 @@ export default function Home({ products }: IHomeProps) {
     </HomeContainer>
   );
 }
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await stripe.products.list({
     expand: ['data.default_price'],
   });
@@ -73,5 +69,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       products,
     },
+    revalidate: 60 * 60 * 2, // 2 hours
   };
 };
