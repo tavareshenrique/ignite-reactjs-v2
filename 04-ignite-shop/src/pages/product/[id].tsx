@@ -1,7 +1,7 @@
-import Stripe from 'stripe';
-
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
+
+import Stripe from 'stripe';
 
 import { stripe } from '../../lib/stripe';
 
@@ -42,12 +42,18 @@ export default function Product({ product }: IProductProps) {
   );
 }
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   return {
-//     paths: [],
-//     fallback: false,
-//   };
-// };
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [
+      {
+        params: {
+          id: 'prod_Nwn6MLpPjVdzOA',
+        },
+      },
+    ],
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps<
   IProductProps,
@@ -55,7 +61,9 @@ export const getStaticProps: GetStaticProps<
 > = async (ctx) => {
   const productId = ctx.params.id;
 
-  const product = await stripe.products.retrieve(productId);
+  const product = await stripe.products.retrieve(productId, {
+    expand: ['default_price'],
+  });
 
   const price = product.default_price as Stripe.Price;
 
