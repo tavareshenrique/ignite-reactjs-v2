@@ -1,4 +1,9 @@
-// import { useRouter } from 'next/router';
+import Stripe from 'stripe';
+
+import { GetStaticProps } from 'next';
+import Image from 'next/image';
+
+import { stripe } from '../../lib/stripe';
 
 import {
   ImageContainer,
@@ -6,26 +11,69 @@ import {
   ProductDetails,
 } from '../../styles/pages/product';
 
-export default function Product() {
-  // const { query } = useRouter();
+type TProduct = {
+  id: string;
+  name: string;
+  description: string;
+  imageUrl: string;
+  price: string;
+};
 
+interface IProductProps {
+  product: TProduct;
+}
+
+export default function Product({ product }: IProductProps) {
   return (
     <ProductContainer>
-      <ImageContainer></ImageContainer>
+      <ImageContainer>
+        <Image src={product.imageUrl} width={520} height={480} alt="" />
+      </ImageContainer>
 
       <ProductDetails>
-        <h1>Camiseta X</h1>
-        <span>R$ 79,90</span>
+        <h1>{product.name}</h1>
+        <span>{product.price}</span>
 
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores
-          aliquid rerum exercitationem facere a molestiae ut sed velit non
-          mollitia? Officiis hic velit assumenda aspernatur nihil, sint sed
-          laboriosam tempora?
-        </p>
+        <p>{product.description}</p>
 
         <button>Comprar agora</button>
       </ProductDetails>
     </ProductContainer>
   );
 }
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   return {
+//     paths: [],
+//     fallback: false,
+//   };
+// };
+
+export const getStaticProps: GetStaticProps<
+  IProductProps,
+  { id: string }
+> = async (ctx) => {
+  const productId = ctx.params.id;
+
+  const product = await stripe.products.retrieve(productId);
+
+  const price = product.default_price as Stripe.Price;
+
+  const formattedPrice = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(price.unit_amount / 100);
+
+  return {
+    props: {
+      product: {
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        imageUrl: product.images[0],
+        price: formattedPrice,
+      },
+    },
+    revalidate: 60 * 60 * 1, // 1 hour
+  };
+};
