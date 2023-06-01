@@ -19,6 +19,7 @@ type TProduct = {
   description: string;
   imageUrl: string;
   price: string;
+  defaultPriceId: string;
 };
 
 interface IProductProps {
@@ -27,6 +28,10 @@ interface IProductProps {
 
 export default function Product({ product }: IProductProps) {
   const { isFallback } = useRouter();
+
+  function handleByProduct() {
+    console.log('product', product);
+  }
 
   if (isFallback) return <p>Carregando...</p>;
 
@@ -42,7 +47,7 @@ export default function Product({ product }: IProductProps) {
 
         <p>{product.description}</p>
 
-        <button>Comprar agora</button>
+        <button onClick={handleByProduct}>Comprar agora</button>
       </ProductDetails>
     </ProductContainer>
   );
@@ -86,6 +91,7 @@ export const getStaticProps: GetStaticProps<
         description: product.description,
         imageUrl: product.images[0],
         price: formattedPrice,
+        defaultPriceId: price.id,
       },
     },
     revalidate: 60 * 60 * 1, // 1 hour
