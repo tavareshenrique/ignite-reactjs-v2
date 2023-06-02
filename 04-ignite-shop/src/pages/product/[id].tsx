@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Head from 'next/head';
 
 import axios from 'axios';
 import Stripe from 'stripe';
@@ -55,22 +56,31 @@ export default function Product({ product }: IProductProps) {
   if (isFallback) return <p>Carregando...</p>;
 
   return (
-    <ProductContainer>
-      <ImageContainer>
-        <Image src={product.imageUrl} width={520} height={480} alt="" />
-      </ImageContainer>
+    <>
+      <Head>
+        <title>{product.name} | Ignite Shop</title>
+      </Head>
 
-      <ProductDetails>
-        <h1>{product.name}</h1>
-        <span>{product.price}</span>
+      <ProductContainer>
+        <ImageContainer>
+          <Image src={product.imageUrl} width={520} height={480} alt="" />
+        </ImageContainer>
 
-        <p>{product.description}</p>
+        <ProductDetails>
+          <h1>{product.name}</h1>
+          <span>{product.price}</span>
 
-        <button onClick={handleByProduct} disabled={isCreatingSessionCheckout}>
-          Comprar agora
-        </button>
-      </ProductDetails>
-    </ProductContainer>
+          <p>{product.description}</p>
+
+          <button
+            onClick={handleByProduct}
+            disabled={isCreatingSessionCheckout}
+          >
+            Comprar agora
+          </button>
+        </ProductDetails>
+      </ProductContainer>
+    </>
   );
 }
 

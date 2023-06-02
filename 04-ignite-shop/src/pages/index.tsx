@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -38,26 +39,32 @@ export default function Home({ products }: IHomeProps) {
   if (!mounted) return null;
 
   return (
-    <HomeContainer ref={sliderRef} className="keen-slider">
-      {products.map((product) => (
-        <Link key={product.id} href={`/product/${product.id}`}>
-          <Product className="keen-slider__slide">
-            <Image
-              src={product.imageUrl}
-              alt={product.name}
-              title={product.name}
-              width={520}
-              height={520}
-            />
+    <>
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
 
-            <footer>
-              <strong>{product.name}</strong>
-              <span>{product.price}</span>
-            </footer>
-          </Product>
-        </Link>
-      ))}
-    </HomeContainer>
+      <HomeContainer ref={sliderRef} className="keen-slider">
+        {products.map((product) => (
+          <Link key={product.id} href={`/product/${product.id}`}>
+            <Product className="keen-slider__slide">
+              <Image
+                src={product.imageUrl}
+                alt={product.name}
+                title={product.name}
+                width={520}
+                height={520}
+              />
+
+              <footer>
+                <strong>{product.name}</strong>
+                <span>{product.price}</span>
+              </footer>
+            </Product>
+          </Link>
+        ))}
+      </HomeContainer>
+    </>
   );
 }
 export const getStaticProps: GetStaticProps = async () => {
