@@ -8,7 +8,7 @@ export const HomeContainer = styled('main', {
   minHeight: 656,
 });
 
-export const Product = styled('a', {
+export const Product = styled('div', {
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
   borderRadius: 8,
   cursor: 'pointer',
@@ -37,6 +37,7 @@ export const Product = styled('a', {
     justifyContent: 'space-between',
 
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    color: '$white',
 
     transform: 'translateY(110%)',
     opacity: 0,
