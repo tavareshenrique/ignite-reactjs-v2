@@ -28,7 +28,6 @@ export function ShoppingCartModal() {
     cartCount,
     removeItem,
     redirectToCheckout,
-    clearCart,
   } = useShoppingCart();
 
   const products = Object.values(cartDetails);
@@ -44,8 +43,6 @@ export function ShoppingCartModal() {
       redirectToCheckout();
     } catch (error) {
       alert('Erro ao finalizar compra. Tente novamente!');
-    } finally {
-      clearCart();
     }
   }
 

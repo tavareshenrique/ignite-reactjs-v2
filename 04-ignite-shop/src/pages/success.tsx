@@ -12,6 +12,8 @@ import {
   ImageRoundContent,
   SuccessContainer,
 } from '../styles/pages/success';
+import { useShoppingCart } from 'use-shopping-cart';
+import { useEffect } from 'react';
 
 interface ISuccessProps {
   customerName: string;
@@ -22,7 +24,18 @@ interface ISuccessProps {
 }
 
 export default function Success({ customerName, products }: ISuccessProps) {
+  const { clearCart, cartDetails } = useShoppingCart();
+
   const amounShirtPurchased = products.length;
+
+  useEffect(() => {
+    const cartItems = Object.values(cartDetails);
+    const cartItemsQuantity = cartItems.length;
+
+    if (cartItemsQuantity > 0) {
+      clearCart();
+    }
+  }, [cartDetails, clearCart]);
 
   function renderOneShirtPurchased() {
     return (
