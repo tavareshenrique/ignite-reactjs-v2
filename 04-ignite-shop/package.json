@@ -1,6 +1,6 @@
 {
   "name": "04-ignite-shop",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@phosphor-icons/react": "2.0.9",
     "@radix-ui/react-dialog": "1.0.4",
     "@stitches/react": "1.2.8",
     "axios": "1.4.0",

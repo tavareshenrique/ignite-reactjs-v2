@@ -1,40 +1,35 @@
 import React from 'react';
+import Image from 'next/image';
 
 import * as Dialog from '@radix-ui/react-dialog';
+import { X } from '@phosphor-icons/react';
 
 import shirtImg from '../../assets/shirt.png';
 
 import {
+  DialogTitle,
   DialogContent,
+  DialogClose,
   ProductContent,
   ProductData,
   ProductImage,
 } from './styles';
-import Image from 'next/image';
 
 export default function ShoppingCartModal() {
   return (
     <Dialog.Root open={true}>
       <Dialog.Portal>
         <DialogContent className="DialogContent">
-          <Dialog.Title className="DialogTitle">Sacola de compras</Dialog.Title>
+          <DialogTitle className="DialogTitle">Sacola de compras</DialogTitle>
           <Dialog.Description className="DialogDescription" hidden>
             Sua sacola de compras está aqui.
           </Dialog.Description>
 
-          <ProductContent>
-            <ProductImage>
-              <Image src={shirtImg} alt="" width={90} height={75} />
-            </ProductImage>
-
-            <ProductData>
-              <span>Camiseta Beyond</span>
-              <strong>R$ 79,90</strong>
-              <button className="IconButton" aria-label="Remove item">
-                Remover
-              </button>
-            </ProductData>
-          </ProductContent>
+          <DialogClose asChild>
+            <button type="button">
+              <X weight="bold" width={15} />
+            </button>
+          </DialogClose>
 
           <ProductContent>
             <ProductImage>
@@ -64,17 +59,20 @@ export default function ShoppingCartModal() {
             </ProductData>
           </ProductContent>
 
-          <div
-            style={{
-              display: 'flex',
-              marginTop: 25,
-              justifyContent: 'flex-end',
-            }}
-          >
-            <Dialog.Close asChild>
-              <button className="Button green">Save changes</button>
-            </Dialog.Close>
-          </div>
+          <ProductContent>
+            <ProductImage>
+              <Image src={shirtImg} alt="" width={90} height={75} />
+            </ProductImage>
+
+            <ProductData>
+              <span>Camiseta Beyond</span>
+              <strong>R$ 79,90</strong>
+              <button className="IconButton" aria-label="Remove item">
+                Remover
+              </button>
+            </ProductData>
+          </ProductContent>
+
           <Dialog.Close asChild>
             <button className="IconButton" aria-label="Close">
               {/* <Cross2Icon /> */}

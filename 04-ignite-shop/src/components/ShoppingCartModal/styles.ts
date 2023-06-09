@@ -2,6 +2,14 @@ import * as Dialog from '@radix-ui/react-dialog';
 
 import { styled } from '../../styles';
 
+export const DialogTitle = styled(Dialog.Title, {
+  fontSize: '$lg',
+  fontWeight: 'bold',
+  color: '$gray100',
+  lineHeight: '160%',
+  fontFamily: 'Roboto',
+});
+
 export const DialogContent = styled(Dialog.Content, {
   minWidth: '32rem',
   borderRadius: '6px',
@@ -12,6 +20,26 @@ export const DialogContent = styled(Dialog.Content, {
   bottom: '0',
   top: '0',
   right: '0',
+});
+
+export const DialogClose = styled(Dialog.Close, {
+  position: 'absolute',
+  top: '1.5rem',
+  right: '1.5rem',
+
+  background: 'transparent',
+  border: 'none',
+  cursor: 'pointer',
+
+  svg: {
+    color: '$gray500',
+  },
+
+  '&:hover': {
+    svg: {
+      color: '$gray300',
+    },
+  },
 });
 
 export const ProductContent = styled('div', {
@@ -69,10 +97,10 @@ export const ProductData = styled('div', {
 
     cursor: 'pointer',
 
-    transition: 'all 0.2s ease-in-out',
+    transition: 'color 0.2s',
 
     '&:hover': {
-      filter: 'brightness(0.8)',
+      color: '$green300',
     },
   },
 });
