@@ -22,6 +22,8 @@
     - [Ignite Timer](#ignite-timer)
   - [Chapter III](#three-chapter-iii)
     - [DT-Money](#dt-money)
+  - [Chapter IV](#four-chapter-iv)
+    - [Ignite Shop](#ignite-shop)
 - [Desafios](#atom_symbol-desafios)
   - [Chapter I](#one-chapter-i)
   - [Chapter II](#two-chapter-ii)
@@ -69,6 +71,16 @@
    </a>
 </p>
 
+## :four: Chapter IV
+
+### Ignite Shop
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/04-ignite-shop">
+    <img alt="Página de Checkout" title="Página de Checkout" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/04-ignite-shop/src/assets/previews/checkout.png" width="700" />
+   </a>
+</p>
+
 # :atom_symbol: Desafios
 
 ## :one: Chapter I
@@ -105,6 +117,16 @@
 <p align="center">
   <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-03-github-blog">
      <img src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-challenge-03-github-blog/main/public/previews/Github-Blog-Desktop.gif" alt="Tela Home e de Artigo do Github Blog" width="700"/>
+   </a>
+</p>
+
+## :four: Chapter IV
+
+[Ignite Shop](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/04-ignite-shop): é o **desafio** do **quarto módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ignite-reactjs-challenge-03-github-blog">
+     <img alt="Página de Sucesso" title="Página de Sucesso" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/04-ignite-shop/src/assets/previews/success.png" width="700" />
    </a>
 </p>
 
