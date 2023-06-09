@@ -11,6 +11,11 @@ export const DialogTitle = styled(Dialog.Title, {
 });
 
 export const DialogContent = styled(Dialog.Content, {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'space-between',
+
   minWidth: '32rem',
   borderRadius: '6px',
   padding: '2.5rem 3rem',
@@ -42,6 +47,27 @@ export const DialogClose = styled(Dialog.Close, {
   },
 });
 
+export const ProductBody = styled('main', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'space-between',
+
+  width: '100%',
+  height: '80%',
+});
+
+export const ProductContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+
+  width: '100%',
+  height: '100%',
+
+  scrollBehavior: 'smooth',
+  overflowY: 'scroll',
+});
+
 export const ProductContent = styled('div', {
   display: 'flex',
   flexDirection: 'row',
@@ -68,7 +94,7 @@ export const ProductImage = styled('div', {
   },
 });
 
-export const ProductData = styled('div', {
+export const ProductInfoContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -102,5 +128,50 @@ export const ProductData = styled('div', {
     '&:hover': {
       color: '$green300',
     },
+  },
+});
+
+export const ProductFooter = styled('footer', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'space-around',
+  width: '100%',
+  height: '10%',
+
+  div: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+
+    span: {
+      fontSize: '$default',
+      lineHeight: '160%',
+    },
+
+    '.amount': {
+      fontSize: '$md',
+      lineHeight: '160%',
+    },
+
+    strong: {
+      fontSize: '$md',
+      lineHeight: '160%',
+      fontWeight: 'bold',
+    },
+
+    '.price': {
+      fontSize: '$xl',
+      lineHeight: '140%',
+      fontWeight: 'bold',
+    },
+  },
+
+  button: {
+    width: '100%',
+
+    margin: '56px 0',
   },
 });

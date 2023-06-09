@@ -10,6 +10,8 @@ import Stripe from 'stripe';
 
 import { stripe } from '../../lib/stripe';
 
+import { Button } from '../../components/Button';
+
 import {
   ImageContainer,
   ProductContainer,
@@ -72,12 +74,12 @@ export default function Product({ product }: IProductProps) {
 
           <p>{product.description}</p>
 
-          <button
+          <Button
             onClick={handleByProduct}
             disabled={isCreatingSessionCheckout}
           >
             Comprar agora
-          </button>
+          </Button>
         </ProductDetails>
       </ProductContainer>
     </>

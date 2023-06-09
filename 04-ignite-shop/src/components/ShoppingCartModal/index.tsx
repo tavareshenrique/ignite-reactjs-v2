@@ -4,81 +4,71 @@ import Image from 'next/image';
 import * as Dialog from '@radix-ui/react-dialog';
 import { X } from '@phosphor-icons/react';
 
+import { Button } from '../Button';
+
 import shirtImg from '../../assets/shirt.png';
 
 import {
   DialogTitle,
   DialogContent,
   DialogClose,
+  ProductBody,
+  ProductContainer,
   ProductContent,
-  ProductData,
+  ProductInfoContent,
   ProductImage,
+  ProductFooter,
 } from './styles';
 
 export default function ShoppingCartModal() {
   return (
-    <Dialog.Root open={true}>
+    <Dialog.Root>
       <Dialog.Portal>
         <DialogContent className="DialogContent">
-          <DialogTitle className="DialogTitle">Sacola de compras</DialogTitle>
-          <Dialog.Description className="DialogDescription" hidden>
-            Sua sacola de compras está aqui.
-          </Dialog.Description>
+          <ProductBody>
+            <DialogTitle className="DialogTitle">Sacola de compras</DialogTitle>
+            <Dialog.Description className="DialogDescription" hidden>
+              Sua sacola de compras está aqui.
+            </Dialog.Description>
 
-          <DialogClose asChild>
-            <button type="button">
-              <X weight="bold" width={15} />
-            </button>
-          </DialogClose>
-
-          <ProductContent>
-            <ProductImage>
-              <Image src={shirtImg} alt="" width={90} height={75} />
-            </ProductImage>
-
-            <ProductData>
-              <span>Camiseta Beyond</span>
-              <strong>R$ 79,90</strong>
-              <button className="IconButton" aria-label="Remove item">
-                Remover
+            <DialogClose asChild>
+              <button type="button">
+                <X weight="bold" width={15} />
               </button>
-            </ProductData>
-          </ProductContent>
+            </DialogClose>
 
-          <ProductContent>
-            <ProductImage>
-              <Image src={shirtImg} alt="" width={90} height={75} />
-            </ProductImage>
+            <ProductContainer>
+              {Array.from({ length: 20 }).map((_, index) => (
+                <ProductContent key={index}>
+                  <ProductImage>
+                    <Image src={shirtImg} alt="" width={90} height={75} />
+                  </ProductImage>
 
-            <ProductData>
-              <span>Camiseta Beyond</span>
-              <strong>R$ 79,90</strong>
-              <button className="IconButton" aria-label="Remove item">
-                Remover
-              </button>
-            </ProductData>
-          </ProductContent>
+                  <ProductInfoContent>
+                    <span>Camiseta Beyond</span>
+                    <strong>R$ 79,90</strong>
+                    <button className="IconButton" aria-label="Remove item">
+                      Remover
+                    </button>
+                  </ProductInfoContent>
+                </ProductContent>
+              ))}
+            </ProductContainer>
+          </ProductBody>
 
-          <ProductContent>
-            <ProductImage>
-              <Image src={shirtImg} alt="" width={90} height={75} />
-            </ProductImage>
+          <ProductFooter>
+            <div>
+              <span>Quantidade</span>
+              <span className="amount">3 itens</span>
+            </div>
 
-            <ProductData>
-              <span>Camiseta Beyond</span>
-              <strong>R$ 79,90</strong>
-              <button className="IconButton" aria-label="Remove item">
-                Remover
-              </button>
-            </ProductData>
-          </ProductContent>
+            <div>
+              <strong>Valor total</strong>
+              <strong className="price">R$ 270,00</strong>
+            </div>
 
-          <Dialog.Close asChild>
-            <button className="IconButton" aria-label="Close">
-              {/* <Cross2Icon /> */}
-              Fechar
-            </button>
-          </Dialog.Close>
+            <Button>Finalizar compra</Button>
+          </ProductFooter>
         </DialogContent>
       </Dialog.Portal>
     </Dialog.Root>
