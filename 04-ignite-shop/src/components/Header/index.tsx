@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import * as Dialog from '@radix-ui/react-dialog';
 
@@ -18,7 +19,9 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <Image src={logoImg} alt="" />
+      <Link href="/">
+        <Image src={logoImg} alt="" />
+      </Link>
 
       <nav>
         <ul>

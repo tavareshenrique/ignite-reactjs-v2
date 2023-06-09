@@ -2,25 +2,71 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
+import Stripe from 'stripe';
 
 import { stripe } from '../lib/stripe';
 
-import { ImageContainer, SuccessContainer } from '../styles/pages/success';
-import Stripe from 'stripe';
+import {
+  ImageContainer,
+  ImageContent,
+  ImageRoundContent,
+  SuccessContainer,
+} from '../styles/pages/success';
 
 interface ISuccessProps {
   customerName: string;
-  product: {
+  products: {
     name: string;
     imageUrl: string;
-  };
+  }[];
 }
 
-export default function Success({ customerName, product }: ISuccessProps) {
+export default function Success({ customerName, products }: ISuccessProps) {
+  const amounShirtPurchased = products.length;
+
+  function renderOneShirtPurchased() {
+    return (
+      <>
+        <ImageContent>
+          <Image src={products[0].imageUrl} width={120} height={120} alt="" />
+        </ImageContent>
+
+        <p>
+          🎉 Uhuul <strong>{customerName}</strong>, sua{' '}
+          <strong>{products[0].name}</strong> já está a caminho da sua casa.
+        </p>
+      </>
+    );
+  }
+
+  function renderMoreThanOneShirtPurchased() {
+    return (
+      <>
+        <ImageContainer>
+          {products.map((product) => (
+            <ImageRoundContent key={product.name}>
+              <Image
+                src={product.imageUrl}
+                width={120}
+                height={120}
+                alt={product.name}
+              />
+            </ImageRoundContent>
+          ))}
+        </ImageContainer>
+
+        <p>
+          🎉 Uhuul <strong>{customerName}</strong>, sua compra de{' '}
+          {amounShirtPurchased} camisetas já está a caminho da sua casa.
+        </p>
+      </>
+    );
+  }
+
   return (
     <>
       <Head>
-        <title>{product.name} | Ignite Shop</title>
+        <title>Compra Efetuada | Ignite Shop</title>
 
         <meta name="robots" content="noindex" />
       </Head>
@@ -28,14 +74,9 @@ export default function Success({ customerName, product }: ISuccessProps) {
       <SuccessContainer>
         <h1>Compra efetuada</h1>
 
-        <ImageContainer>
-          <Image src={product.imageUrl} width={120} height={120} alt="" />
-        </ImageContainer>
-
-        <p>
-          Uhuul <strong>{customerName}</strong>, sua{' '}
-          <strong>{product.name}</strong> já está a caminho da sua casa.
-        </p>
+        {amounShirtPurchased > 1
+          ? renderMoreThanOneShirtPurchased()
+          : renderOneShirtPurchased()}
 
         <Link href="/">Voltar ao catálogo</Link>
       </SuccessContainer>
@@ -60,15 +101,25 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   });
 
   const customerName = session.customer_details.name;
-  const product = session.line_items.data[0].price.product as Stripe.Product;
+
+  const products = session.line_items.data.map((lineItem) => {
+    const product = lineItem.price.product as Stripe.Product;
+
+    return {
+      name: product.name,
+      imageUrl: product.images[0],
+    };
+  });
 
   return {
     props: {
       customerName,
-      product: {
-        name: product.name,
-        imageUrl: product.images[0],
-      },
+      products,
+
+      // {
+      //   name: product.name,
+      //   imageUrl: product.images[0],
+      // },
     },
   };
 };

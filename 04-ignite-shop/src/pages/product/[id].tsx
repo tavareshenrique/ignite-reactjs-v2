@@ -49,7 +49,7 @@ export default function Product({ product }: IProductProps) {
     try {
       setIsProductBeingAddedToCart(true);
 
-      const productInCart = cartDetails[product.id];
+      const productInCart = cartDetails[product.defaultPriceId];
 
       if (productInCart) {
         alert('Produto já adicionado ao carrinho.');

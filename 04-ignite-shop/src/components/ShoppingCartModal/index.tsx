@@ -28,6 +28,7 @@ export function ShoppingCartModal() {
     cartCount,
     removeItem,
     redirectToCheckout,
+    clearCart,
   } = useShoppingCart();
 
   const products = Object.values(cartDetails);
@@ -36,6 +37,16 @@ export function ShoppingCartModal() {
 
   function handleRemoveItem(productId: string) {
     removeItem(productId);
+  }
+
+  function handleCheckout() {
+    try {
+      redirectToCheckout();
+    } catch (error) {
+      alert('Erro ao finalizar compra. Tente novamente!');
+    } finally {
+      clearCart();
+    }
   }
 
   return (
@@ -89,7 +100,7 @@ export function ShoppingCartModal() {
             <strong className="price">{formattedTotalPrice}</strong>
           </div>
 
-          <Button onClick={() => redirectToCheckout()}>Finalizar compra</Button>
+          <Button onClick={handleCheckout}>Finalizar compra</Button>
         </ProductFooter>
       </DialogContent>
     </Dialog.Portal>
