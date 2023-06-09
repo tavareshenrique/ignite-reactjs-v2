@@ -5,8 +5,10 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Head from 'next/head';
 
-import axios from 'axios';
+// import axios from 'axios';
 import Stripe from 'stripe';
+
+import { useShoppingCart } from 'use-shopping-cart';
 
 import { stripe } from '../../lib/stripe';
 
@@ -25,6 +27,7 @@ type TProduct = {
   imageUrl: string;
   price: string;
   defaultPriceId: string;
+  priceValue: number;
 };
 
 interface IProductProps {
@@ -34,25 +37,57 @@ interface IProductProps {
 export default function Product({ product }: IProductProps) {
   const { isFallback } = useRouter();
 
-  const [isCreatingSessionCheckout, setIsCreatingSessionCheckout] =
+  const { addItem, cartDetails } = useShoppingCart();
+
+  // const [isCreatingSessionCheckout, setIsCreatingSessionCheckout] =
+  //   useState(false);
+
+  const [isProductBeingAddedToCart, setIsProductBeingAddedToCart] =
     useState(false);
 
   async function handleByProduct() {
     try {
-      setIsCreatingSessionCheckout(true);
+      setIsProductBeingAddedToCart(true);
 
-      const response = await axios.post('/api/checkout', {
-        priceId: product.defaultPriceId,
+      const productInCart = cartDetails[product.id];
+
+      if (productInCart) {
+        alert('Produto já adicionado ao carrinho.');
+
+        return;
+      }
+
+      addItem({
+        id: product.defaultPriceId,
+        name: product.name,
+        description: product.description,
+        image: product.imageUrl,
+        price_id: product.defaultPriceId,
+        price: product.priceValue,
+        currency: 'BRL',
+        quantity: 1,
       });
-
-      const { checkoutUrl } = response.data;
-
-      window.location.href = checkoutUrl;
     } catch (err) {
-      setIsCreatingSessionCheckout(false);
-
-      alert('Falha ao redirectionar ao checkout.');
+      alert('Falha ao adicionar o produto ao carrinho.');
+    } finally {
+      setIsProductBeingAddedToCart(false);
     }
+
+    // try {
+    //   setIsCreatingSessionCheckout(true);
+
+    //   const response = await axios.post('/api/checkout', {
+    //     priceId: product.defaultPriceId,
+    //   });
+
+    //   const { checkoutUrl } = response.data;
+
+    //   window.location.href = checkoutUrl;
+    // } catch (err) {
+    //   setIsCreatingSessionCheckout(false);
+
+    //   alert('Falha ao redirectionar ao checkout.');
+    // }
   }
 
   if (isFallback) return <p>Carregando...</p>;
@@ -76,7 +111,7 @@ export default function Product({ product }: IProductProps) {
 
           <Button
             onClick={handleByProduct}
-            disabled={isCreatingSessionCheckout}
+            disabled={isProductBeingAddedToCart}
           >
             Comprar agora
           </Button>
@@ -124,6 +159,7 @@ export const getStaticProps: GetStaticProps<
         description: product.description,
         imageUrl: product.images[0],
         price: formattedPrice,
+        priceValue: price.unit_amount,
         defaultPriceId: price.id,
       },
     },

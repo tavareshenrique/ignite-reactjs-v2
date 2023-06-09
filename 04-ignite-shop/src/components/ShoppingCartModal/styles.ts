@@ -65,7 +65,7 @@ export const ProductContainer = styled('div', {
   height: '100%',
 
   scrollBehavior: 'smooth',
-  overflowY: 'scroll',
+  overflowY: 'auto',
 });
 
 export const ProductContent = styled('div', {

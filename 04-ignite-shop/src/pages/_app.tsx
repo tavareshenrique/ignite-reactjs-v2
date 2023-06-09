@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { AppProps } from 'next/app';
-import Image from 'next/image';
 
-import ShoppingCartModal from '../components/ShoppingCartModal';
+import * as Dialog from '@radix-ui/react-dialog';
 
-import logoImg from '../assets/logo.svg';
+import { CartProvider } from 'use-shopping-cart';
+
+import { ShoppingCartModal, Header } from '../components';
 
 import { globalStyles } from '../styles/global';
 
-import { Container, Header } from '../styles/pages/app';
+import { Container } from '../styles/pages/app';
 
 globalStyles();
 
@@ -21,13 +22,25 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Container>
-      <Header>
-        <Image src={logoImg} alt="" />
-      </Header>
+      <CartProvider
+        mode="payment"
+        cartMode="client-only"
+        stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}
+        successUrl={`${process.env.NEXT_PUBLIC_URL}/success?session_id={CHECKOUT_SESSION_ID}`}
+        cancelUrl={`${process.env.NEXT_PUBLIC_URL}/`}
+        currency="BRL"
+        allowedCountries={['BR']}
+        shouldPersist
+        billingAddressCollection
+      >
+        <Dialog.Root>
+          <Header />
 
-      <Component {...pageProps} />
+          <Component {...pageProps} />
 
-      <ShoppingCartModal />
+          <ShoppingCartModal />
+        </Dialog.Root>
+      </CartProvider>
     </Container>
   );
 }

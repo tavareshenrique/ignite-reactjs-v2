@@ -2,11 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 
 import * as Dialog from '@radix-ui/react-dialog';
+
 import { X } from '@phosphor-icons/react';
 
-import { Button } from '../Button';
+import { useShoppingCart } from 'use-shopping-cart';
 
-import shirtImg from '../../assets/shirt.png';
+import { Button } from '../Button';
 
 import {
   DialogTitle,
@@ -20,57 +21,77 @@ import {
   ProductFooter,
 } from './styles';
 
-export default function ShoppingCartModal() {
+export function ShoppingCartModal() {
+  const {
+    cartDetails,
+    formattedTotalPrice,
+    cartCount,
+    removeItem,
+    redirectToCheckout,
+  } = useShoppingCart();
+
+  const products = Object.values(cartDetails);
+
+  const cartCountText = cartCount > 1 ? 'itens' : 'item';
+
+  function handleRemoveItem(productId: string) {
+    removeItem(productId);
+  }
+
   return (
-    <Dialog.Root>
-      <Dialog.Portal>
-        <DialogContent className="DialogContent">
-          <ProductBody>
-            <DialogTitle className="DialogTitle">Sacola de compras</DialogTitle>
-            <Dialog.Description className="DialogDescription" hidden>
-              Sua sacola de compras está aqui.
-            </Dialog.Description>
+    <Dialog.Portal>
+      <DialogContent className="DialogContent">
+        <ProductBody>
+          <DialogTitle className="DialogTitle">Sacola de compras</DialogTitle>
+          <Dialog.Description className="DialogDescription" hidden>
+            Sua sacola de compras está aqui.
+          </Dialog.Description>
 
-            <DialogClose asChild>
-              <button type="button">
-                <X weight="bold" width={15} />
-              </button>
-            </DialogClose>
+          <DialogClose asChild>
+            <button type="button">
+              <X weight="bold" width={15} />
+            </button>
+          </DialogClose>
 
-            <ProductContainer>
-              {Array.from({ length: 20 }).map((_, index) => (
-                <ProductContent key={index}>
-                  <ProductImage>
-                    <Image src={shirtImg} alt="" width={90} height={75} />
-                  </ProductImage>
+          <ProductContainer>
+            {products.map((product, index) => (
+              <ProductContent key={index}>
+                <ProductImage>
+                  <Image src={product.image} alt="" width={90} height={75} />
+                </ProductImage>
 
-                  <ProductInfoContent>
-                    <span>Camiseta Beyond</span>
-                    <strong>R$ 79,90</strong>
-                    <button className="IconButton" aria-label="Remove item">
-                      Remover
-                    </button>
-                  </ProductInfoContent>
-                </ProductContent>
-              ))}
-            </ProductContainer>
-          </ProductBody>
+                <ProductInfoContent>
+                  <span>{product.name}</span>
+                  <strong>{product.formattedValue}</strong>
+                  <button
+                    onClick={() => handleRemoveItem(product.id)}
+                    className="IconButton"
+                    aria-label="Remove item"
+                  >
+                    Remover
+                  </button>
+                </ProductInfoContent>
+              </ProductContent>
+            ))}
+          </ProductContainer>
+        </ProductBody>
 
-          <ProductFooter>
-            <div>
-              <span>Quantidade</span>
-              <span className="amount">3 itens</span>
-            </div>
+        <ProductFooter>
+          <div>
+            <span>Quantidade</span>
+            <span className="amount">
+              {cartCount} {cartCountText}
+            </span>
+          </div>
 
-            <div>
-              <strong>Valor total</strong>
-              <strong className="price">R$ 270,00</strong>
-            </div>
+          <div>
+            <strong>Valor total</strong>
+            <strong className="price">{formattedTotalPrice}</strong>
+          </div>
 
-            <Button>Finalizar compra</Button>
-          </ProductFooter>
-        </DialogContent>
-      </Dialog.Portal>
-    </Dialog.Root>
+          <Button onClick={() => redirectToCheckout()}>Finalizar compra</Button>
+        </ProductFooter>
+      </DialogContent>
+    </Dialog.Portal>
   );
 }
