@@ -1,0 +1,11 @@
+{
+  "name": "@ignite-ui/eslint-config",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "8.42.0",
+    "eslint-config-henrique": "1.0.1"
+  }
+}
