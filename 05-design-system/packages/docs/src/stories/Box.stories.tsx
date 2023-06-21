@@ -1,6 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react';
 
-import { Box, IBoxProps } from '@ignite-ui/react';
+import { Box, IBoxProps, Text } from '@ignite-ui/react';
 
 export default {
   title: 'Surfaces/Box',
@@ -8,7 +8,7 @@ export default {
   args: {
     children: (
       <>
-        <span>Box Element</span>
+        <Text>Box Element</Text>
       </>
     )
   },
