@@ -6,6 +6,6 @@
   "main": "index.js",
   "devDependencies": {
     "eslint": "8.42.0",
-    "eslint-config-henrique": "1.0.1"
+    "eslint-config-henrique": "1.1.0"
   }
 }
