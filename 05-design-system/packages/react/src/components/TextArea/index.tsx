@@ -31,4 +31,4 @@ export const TextArea = styled('textarea', {
   },
 })
 
-export interface TextAreaProps extends ComponentProps<typeof TextArea> {}
+export interface ITextAreaProps extends ComponentProps<typeof TextArea> {}

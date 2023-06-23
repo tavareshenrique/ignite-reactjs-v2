@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, Text, TextArea, TextAreaProps } from '@ignite-ui/react'
+import { Box, Text, TextArea, ITextAreaProps } from '@ignite-ui/react'
 
 export default {
   title: 'Form/Text Area',
@@ -18,15 +18,15 @@ export default {
       )
     },
   ],
-} as Meta<TextAreaProps>
+} as Meta<ITextAreaProps>
 
-export const Primary: StoryObj<TextAreaProps> = {
+export const Primary: StoryObj<ITextAreaProps> = {
   args: {
     placeholder: 'Add any observations...',
   },
 }
 
-export const Disabled: StoryObj<TextAreaProps> = {
+export const Disabled: StoryObj<ITextAreaProps> = {
   args: {
     disabled: true,
   },

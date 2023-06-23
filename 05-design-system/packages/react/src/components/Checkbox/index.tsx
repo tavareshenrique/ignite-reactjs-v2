@@ -2,10 +2,10 @@ import { Check } from 'phosphor-react'
 import { ComponentProps } from 'react'
 import { CheckboxContainer, CheckboxIndicator } from './styles'
 
-export interface CheckboxProps
+export interface ICheckboxProps
   extends ComponentProps<typeof CheckboxContainer> {}
 
-export function Checkbox(props: CheckboxProps) {
+export function Checkbox(props: ICheckboxProps) {
   return (
     <CheckboxContainer {...props}>
       <CheckboxIndicator asChild>

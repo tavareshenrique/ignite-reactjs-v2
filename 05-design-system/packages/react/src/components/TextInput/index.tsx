@@ -1,11 +1,11 @@
 import { ComponentProps } from 'react'
 import { Input, Prefix, TextInputContainer } from './styles'
 
-export interface TextInputProps extends ComponentProps<typeof Input> {
+export interface ITextInputProps extends ComponentProps<typeof Input> {
   prefix?: string
 }
 
-export function TextInput({ prefix, ...props }: TextInputProps) {
+export function TextInput({ prefix, ...props }: ITextInputProps) {
   return (
     <TextInputContainer>
       {!!prefix && <Prefix>{prefix}</Prefix>}

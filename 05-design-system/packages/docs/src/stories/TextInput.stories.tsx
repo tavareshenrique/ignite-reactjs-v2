@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, Text, TextInput, TextInputProps } from '@ignite-ui/react'
+import { Box, Text, TextInput, ITextInputProps } from '@ignite-ui/react'
 
 export default {
   title: 'Form/Text Input',
@@ -18,21 +18,21 @@ export default {
       )
     },
   ],
-} as Meta<TextInputProps>
+} as Meta<ITextInputProps>
 
-export const Primary: StoryObj<TextInputProps> = {
+export const Primary: StoryObj<ITextInputProps> = {
   args: {
     placeholder: 'Type your name',
   },
 }
 
-export const Disabled: StoryObj<TextInputProps> = {
+export const Disabled: StoryObj<ITextInputProps> = {
   args: {
     disabled: true,
   },
 }
 
-export const WithPrefix: StoryObj<TextInputProps> = {
+export const WithPrefix: StoryObj<ITextInputProps> = {
   args: {
     prefix: 'cal.com/',
   },
