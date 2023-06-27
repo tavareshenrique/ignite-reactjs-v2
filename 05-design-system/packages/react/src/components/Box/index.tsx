@@ -10,3 +10,5 @@ export const Box = styled('div', {
 })
 
 export interface IBoxProps extends ComponentProps<typeof Box> {}
+
+Box.displayName = 'Box'
