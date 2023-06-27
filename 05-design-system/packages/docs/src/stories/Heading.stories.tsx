@@ -7,7 +7,19 @@ export default {
   tags: ['autodocs'],
   args: {
     children: 'Custom title',
+    size: 'md',
+    as: 'h1',
   },
+  argTypes: {
+    size: {
+      options: ['sm',' md', 'lg', '2xl', '4xl', '5xl', '6xl'],
+      control: { type: 'inline-radio' },
+    },
+    as: {
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'inline-radio' },
+    }
+  }
 } as Meta<IHeadingProps>
 
 export const Primary: StoryObj<IHeadingProps> = {}

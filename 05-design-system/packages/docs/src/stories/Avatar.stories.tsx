@@ -10,6 +10,11 @@ export default {
     alt: 'Henrique Tavares',
     title: 'Henrique Tavares',
   },
+  argTypes: {
+    src: {
+      control: { type: 'text' },
+    },
+  }
 } as Meta<IAvatarProps>
 
 export const Primary: StoryObj<IAvatarProps> = {}
