@@ -30,8 +30,8 @@
   - [Chapter I](#one-chapter-i)
   - [Chapter II](#two-chapter-ii)
   - [Chapter III](#three-chapter-iii)
-  - [Chapter IV](#three-chapter-iv)
-  - [Chapter V](#three-chapter-v)
+  - [Chapter IV](#four-chapter-iv)
+  - [Chapter V](#five-chapter-v)
 - [Autores](#computer-autores)
 - [Licença](#closed_book-licença)
 
