@@ -24,10 +24,14 @@
     - [DT-Money](#dt-money)
   - [Chapter IV](#four-chapter-iv)
     - [Ignite Shop](#ignite-shop)
+  - [Chapter V](#five-chapter-v)
+    - [ihenrits-UI](#ihenrits-ui)
 - [Desafios](#atom_symbol-desafios)
   - [Chapter I](#one-chapter-i)
   - [Chapter II](#two-chapter-ii)
   - [Chapter III](#three-chapter-iii)
+  - [Chapter IV](#three-chapter-iv)
+  - [Chapter V](#three-chapter-v)
 - [Autores](#computer-autores)
 - [Licença](#closed_book-licença)
 
@@ -81,6 +85,16 @@
    </a>
 </p>
 
+## :five: Chapter V
+
+### ihenrits-UI
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ihenrits-ui">
+    <img alt="ihenrits-UI" title="ihenrits-UI" src="https://raw.githubusercontent.com/tavareshenrique/ihenrits-ui/main/previews/bg.png" width="700" />
+   </a>
+</p>
+
 # :atom_symbol: Desafios
 
 ## :one: Chapter I
@@ -129,6 +143,19 @@
      <img alt="Página de Sucesso" title="Página de Sucesso" src="https://raw.githubusercontent.com/tavareshenrique/ignite-reactjs-v2/main/04-ignite-shop/src/assets/previews/success.png" width="700" />
    </a>
 </p>
+
+## :five: Chapter V
+
+### ihenrits-UI
+
+[ihenrits-UI](https://github.com/tavareshenrique/ihenrits-ui): é o **desafio** do **quinto módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
+
+<p align="center">
+  <a href="https://github.com/tavareshenrique/ihenrits-ui">
+    <img alt="ihenrits-UI" title="ihenrits-UI" src="https://raw.githubusercontent.com/tavareshenrique/ihenrits-ui/main/previews/bg.png" width="700" />
+   </a>
+</p>
+
 
 # :computer: Autores
 
