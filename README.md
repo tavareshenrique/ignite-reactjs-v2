@@ -27,11 +27,11 @@
   - [Chapter V](#five-chapter-v)
     - [ihenrits-UI](#ihenrits-ui)
 - [Desafios](#atom_symbol-desafios)
-  - [Chapter I](#one-chapter-i)
-  - [Chapter II](#two-chapter-ii)
-  - [Chapter III](#three-chapter-iii)
-  - [Chapter IV](#four-chapter-iv)
-  - [Chapter V](#five-chapter-v)
+  - [Chapter I](#one-challenge-chapter-i)
+  - [Chapter II](#two-challenge-chapter-ii)
+  - [Chapter III](#three-challenge-chapter-iii)
+  - [Chapter IV](#four-challenge-chapter-iv)
+  - [Chapter V](#five-challenge-chapter-v)
 - [Autores](#computer-autores)
 - [Licença](#closed_book-licença)
 
@@ -97,7 +97,7 @@
 
 # :atom_symbol: Desafios
 
-## :one: Chapter I
+## :one: Challenge Chapter I
 
 [ToDo List](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/01-todo-list): é o **desafio** do **primeiro módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
 
@@ -107,7 +107,7 @@
    </a>
 </p>
 
-## :two: Chapter II
+## :two: Challenge Chapter II
 
 [Coffee Delivery](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/02-coffee-delivery): é o **desafio** do **segundo módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
 
@@ -124,7 +124,7 @@
    </a>
 </p>
 
-## :three: Chapter III
+## :three: Challenge Chapter III
 
 [Github Blog](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/challenges/03-github-blog): é o **desafio** do **terceiro módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
 
@@ -134,7 +134,7 @@
    </a>
 </p>
 
-## :four: Chapter IV
+## :four: Challenge Chapter IV
 
 [Ignite Shop](https://github.com/tavareshenrique/ignite-reactjs-v2/tree/main/04-ignite-shop): é o **desafio** do **quarto módulo** do curso **Ignite ReactJS v2** da **Rocketseat**.
 
@@ -144,7 +144,7 @@
    </a>
 </p>
 
-## :five: Chapter V
+## :five: Challenge Chapter V
 
 ### ihenrits-UI
 
