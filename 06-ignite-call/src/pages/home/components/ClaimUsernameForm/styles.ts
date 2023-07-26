@@ -1,4 +1,4 @@
-import { styled, Box } from '@ihenrits-ui/react';
+import { styled, Box, Text } from '@ihenrits-ui/react';
 
 export const Form = styled(Box, {
   display: 'grid',
@@ -9,5 +9,23 @@ export const Form = styled(Box, {
 
   '@media(max-width: 600px)': {
     gridTemplateColumns: '1fr',
+  },
+});
+
+export const FormAnnotation = styled('div', {
+  marginTop: '$2',
+
+  [`> ${Text}`]: {
+    color: '$gray400',
+  },
+
+  variants: {
+    error: {
+      true: {
+        [`> ${Text}`]: {
+          color: '$red500',
+        },
+      },
+    },
   },
 });
