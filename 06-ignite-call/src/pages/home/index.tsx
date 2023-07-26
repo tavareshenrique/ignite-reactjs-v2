@@ -1,6 +1,8 @@
 import { Heading, Text } from '@ihenrits-ui/react';
 import Image from 'next/image';
 
+import { ClaimUsernameForm } from './components/ClaimUsernameForm';
+
 import previewImage from '../../assets/app-preview.png';
 
 import { Container, Hero, Preview } from './style';
@@ -17,6 +19,8 @@ export default function Home() {
           Conecte seu calendário e permita que as pessoas marquem agendamentos
           no seu tempo livre.
         </Text>
+
+        <ClaimUsernameForm />
       </Hero>
 
       <Preview>

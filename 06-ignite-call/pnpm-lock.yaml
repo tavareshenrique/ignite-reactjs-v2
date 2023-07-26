@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@ihenrits-ui/react':
-    specifier: 2.2.0
-    version: 2.2.0(@types/react-dom@18.2.7)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 2.2.2
+    version: 2.2.2(@types/react-dom@18.2.7)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0)
   '@types/node':
     specifier: 20.4.4
     version: 20.4.4
@@ -23,6 +23,9 @@ dependencies:
   next:
     specifier: 13.4.12
     version: 13.4.12(react-dom@18.2.0)(react@18.2.0)
+  phosphor-react:
+    specifier: ^1.4.1
+    version: 1.4.1(react@18.2.0)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -121,8 +124,8 @@ packages:
   /@humanwhocodes/object-schema@1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
 
-  /@ihenrits-ui/react@2.2.0(@types/react-dom@18.2.7)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-pZeXehfXtI/SFSh4iM5QmDnprijt0A3kK5MzrVy/3d4StT8csqtIGkHjyRdfD8kHR6wsaTzBrY05L+umTRljOg==}
+  /@ihenrits-ui/react@2.2.2(@types/react-dom@18.2.7)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ejg/EH1k5bm09OhVqw24QU91Ns8peeYk5lXQJgRs64faqF3j9I0wvJ9iQdOcXPQenAH0Tx2SyBoy6D5co5B/8Q==}
     dependencies:
       '@radix-ui/react-avatar': 1.0.3(@types/react-dom@18.2.7)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-checkbox': 1.0.4(@types/react-dom@18.2.7)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0)
