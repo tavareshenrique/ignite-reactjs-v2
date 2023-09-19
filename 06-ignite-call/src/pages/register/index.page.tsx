@@ -14,12 +14,13 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { AxiosError } from 'axios';
+
 import { ArrowRight } from 'phosphor-react';
 
 import { api } from '../../lib/axios';
 
 import { Container, Form, FormError, Header } from './style';
-import { AxiosError } from 'axios';
 
 const registerFormSchema = z.object({
   username: z
@@ -62,6 +63,8 @@ export default function Register() {
         name: data.name,
         username: data.username,
       });
+
+      await router.push('/register/connect-calendar');
     } catch (err) {
       if (err instanceof AxiosError && err.response?.data?.message) {
         alert(err.response.data.message);
