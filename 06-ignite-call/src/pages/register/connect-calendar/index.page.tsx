@@ -1,3 +1,5 @@
+import { signIn, useSession } from 'next-auth/react';
+
 import { Button, Heading, MultiStep, Text } from '@ihenrits-ui/react';
 
 import { ArrowRight, GoogleLogo } from 'phosphor-react';
@@ -6,6 +8,8 @@ import { Container, Header } from '../style';
 import { ConnectItem, ConnextBox } from './styles';
 
 export default function ConnectCalendar() {
+  const session = useSession();
+
   // async function handleRegister(data: TRegisterFormData) {
 
   // }
@@ -25,7 +29,7 @@ export default function ConnectCalendar() {
       <ConnextBox>
         <ConnectItem>
           <Text>Google Calendar</Text>
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={() => signIn('google')}>
             <GoogleLogo />
             Conectar
           </Button>
