@@ -13,7 +13,7 @@ export default function ConnectCalendar() {
   const router = useRouter();
 
   const hasAuthError = !!router.query.error;
-  const isSignedIn = session.status === 'authenticated';
+  const isSignedId = session.status === 'authenticated';
 
   async function handleConnectCalendar() {
     await signIn('google');
@@ -34,7 +34,7 @@ export default function ConnectCalendar() {
       <ConnextBox>
         <ConnectItem>
           <Text>Google Calendar</Text>
-          {isSignedIn ? (
+          {isSignedId ? (
             <Button size="sm" disabled>
               <Check />
               Conectado
@@ -54,7 +54,7 @@ export default function ConnectCalendar() {
           </AuthError>
         )}
 
-        <Button type="submit" disabled={!isSignedIn}>
+        <Button type="submit" disabled={!isSignedId}>
           Próximo passo
           <ArrowRight />
         </Button>
