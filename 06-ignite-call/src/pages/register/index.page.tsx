@@ -20,7 +20,7 @@ import { ArrowRight } from 'phosphor-react';
 
 import { api } from '../../lib/axios';
 
-import { Container, Form, FormError, Header } from './style';
+import { Container, Form, FormError, Header } from './styles';
 
 const registerFormSchema = z.object({
   username: z
