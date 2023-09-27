@@ -1,12 +1,13 @@
+import { useRouter } from 'next/router';
+
 import { signIn, useSession } from 'next-auth/react';
 
 import { Button, Heading, MultiStep, Text } from '@ihenrits-ui/react';
 
 import { ArrowRight, Check, GoogleLogo } from 'phosphor-react';
 
-import { Container, Header } from '../style';
+import { Container, Header } from '../styles';
 import { AuthError, ConnectItem, ConnextBox } from './styles';
-import { useRouter } from 'next/router';
 
 export default function ConnectCalendar() {
   const session = useSession();
@@ -15,7 +16,9 @@ export default function ConnectCalendar() {
   const hasAuthError = !!router.query.error;
   const isSignedId = session.status === 'authenticated';
 
-  console.log(session);
+  async function handleNavigateToNextStep() {
+    await router.push('/register/time-intervals');
+  }
 
   async function handleConnectCalendar() {
     await signIn('google');
@@ -56,7 +59,11 @@ export default function ConnectCalendar() {
           </AuthError>
         )}
 
-        <Button type="submit" disabled={!isSignedId}>
+        <Button
+          onClick={handleNavigateToNextStep}
+          type="submit"
+          disabled={!isSignedId}
+        >
           Próximo passo
           <ArrowRight />
         </Button>
