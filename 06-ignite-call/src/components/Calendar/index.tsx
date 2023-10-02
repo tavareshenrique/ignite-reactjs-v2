@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import dayjs from 'dayjs';
 
@@ -36,6 +36,28 @@ export function Calendar() {
 
   const currentMonth = currentDate.format('MMMM');
   const currentYear = currentDate.format('YYYY');
+
+  const calendarWeeks = useMemo(() => {
+    const daysInMonthArray = Array.from({
+      length: currentDate.daysInMonth(),
+    }).map((_, index) => {
+      return currentDate.set('date', index + 1);
+    });
+
+    const firstWeekDay = currentDate.get('day');
+
+    const previousMonthFillArray = Array.from({
+      length: firstWeekDay,
+    })
+      .map((_, index) => {
+        return currentDate.set('date', index + 1);
+      })
+      .reverse();
+
+    return [...previousMonthFillArray, ...daysInMonthArray];
+  }, [currentDate]);
+
+  console.log('calendarWeeks ======>', calendarWeeks);
 
   return (
     <CalendarContainer>
