@@ -17,8 +17,6 @@ export default async function handler(
 
   const { date } = req.query;
 
-  console.log('date ========>', date);
-
   if (!date) {
     return res.status(400).json({ message: 'Date not provider.' });
   }
@@ -37,10 +35,8 @@ export default async function handler(
   const isPastDate = referenceDate.endOf('day').isBefore(new Date());
 
   if (isPastDate) {
-    return res.json({ available: [] });
+    return res.json({ possibleTimes: [], availableTimes: [] });
   }
-
-  console.log('===============>', referenceDate.get('day'));
 
   const userAvailability = await prisma.userTimeInterval.findFirst({
     where: {
@@ -50,7 +46,7 @@ export default async function handler(
   });
 
   if (!userAvailability) {
-    return res.json({ available: [] });
+    return res.json({ possibleTimes: [], availableTimes: [] });
   }
 
   const { time_start_in_minutes, time_end_in_minutes } = userAvailability;
