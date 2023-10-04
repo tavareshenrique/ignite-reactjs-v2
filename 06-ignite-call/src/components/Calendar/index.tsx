@@ -112,8 +112,6 @@ export function Calendar({ onDateSelected, selectedDate }: ICalendarProps) {
     return calendarWeeks;
   }, [currentDate]);
 
-  console.log('calendarWeeks ======>', calendarWeeks);
-
   return (
     <CalendarContainer>
       <CalendarHeader>
