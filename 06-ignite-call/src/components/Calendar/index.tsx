@@ -14,6 +14,9 @@ import {
   CalendarHeader,
   CalendarTitle,
 } from './styles';
+import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
+import { api } from '../../lib/axios';
 
 interface ICalendarWeek {
   week: number;
@@ -24,8 +27,12 @@ interface ICalendarWeek {
 }
 
 interface ICalendarProps {
-  selectedDate?: Date | null;
+  selectedDate: Date | null;
   onDateSelected: (date: Date) => void;
+}
+
+interface IBlockedDates {
+  blockedWeekDays: number[];
 }
 
 type TCalendarWeeks = ICalendarWeek[];
@@ -34,6 +41,28 @@ export function Calendar({ onDateSelected, selectedDate }: ICalendarProps) {
   const [currentDate, setCurrentDate] = useState(() => {
     return dayjs().set('date', 1);
   });
+
+  const router = useRouter();
+
+  const username = String(router.query.username);
+  const year = currentDate.get('year');
+  const month = currentDate.get('month');
+
+  const { data: blockedDates } = useQuery<IBlockedDates>(
+    ['blocked-dates', year, month],
+    async () => {
+      const response = await api.get(`/users/${username}/blocked-dates`, {
+        params: {
+          year,
+          month,
+        },
+      });
+
+      return response.data;
+    },
+  );
+
+  console.log(blockedDates);
 
   function handlePreviousMonth() {
     const previousMonthDate = currentDate.subtract(1, 'month');
@@ -86,7 +115,12 @@ export function Calendar({ onDateSelected, selectedDate }: ICalendarProps) {
         return { date, disabled: true };
       }),
       ...daysInMonthArray.map((date) => {
-        return { date, disabled: date.endOf('day').isBefore(new Date()) };
+        return {
+          date,
+          disabled:
+            date.endOf('day').isBefore(new Date()) ||
+            blockedDates?.blockedWeekDays.includes(date.get('day')),
+        };
       }),
       ...nextMonthFillArray.map((date) => {
         return { date, disabled: true };
