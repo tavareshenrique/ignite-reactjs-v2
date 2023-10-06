@@ -33,6 +33,7 @@ interface ICalendarProps {
 
 interface IBlockedDates {
   blockedWeekDays: number[];
+  blockedDates: number[];
 }
 
 type TCalendarWeeks = ICalendarWeek[];
@@ -46,7 +47,7 @@ export function Calendar({ onDateSelected, selectedDate }: ICalendarProps) {
 
   const username = String(router.query.username);
   const year = currentDate.get('year');
-  const month = currentDate.get('month');
+  const month = currentDate.get('month') + 1;
 
   const { data: blockedDates } = useQuery<IBlockedDates>(
     ['blocked-dates', year, month],
@@ -61,8 +62,6 @@ export function Calendar({ onDateSelected, selectedDate }: ICalendarProps) {
       return response.data;
     },
   );
-
-  console.log(blockedDates);
 
   function handlePreviousMonth() {
     const previousMonthDate = currentDate.subtract(1, 'month');
@@ -123,7 +122,8 @@ export function Calendar({ onDateSelected, selectedDate }: ICalendarProps) {
           date,
           disabled:
             date.endOf('day').isBefore(new Date()) ||
-            blockedDates.blockedWeekDays.includes(date.get('day')),
+            blockedDates.blockedWeekDays.includes(date.get('day')) ||
+            blockedDates.blockedDates.includes(date.get('date')),
         };
       }),
       ...nextMonthFillArray.map((date) => {
