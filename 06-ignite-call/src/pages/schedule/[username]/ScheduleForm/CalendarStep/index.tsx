@@ -21,7 +21,11 @@ interface IAvaliability {
   availableTimes: number[];
 }
 
-export function CalendarStep() {
+interface ICalendarStepProps {
+  onSelectDateTime: (date: Date) => void;
+}
+
+export function CalendarStep({ onSelectDateTime }: ICalendarStepProps) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   const router = useRouter();
@@ -54,6 +58,15 @@ export function CalendarStep() {
     },
   );
 
+  function handleSelectTime(time: number) {
+    const dateWithTime = dayjs(selectedDate)
+      .set('hour', time)
+      .startOf('hour')
+      .toDate();
+
+    onSelectDateTime(dateWithTime);
+  }
+
   return (
     <Container isTimePickerOpen={isDateSelected}>
       <Calendar selectedDate={selectedDate} onDateSelected={setSelectedDate} />
@@ -69,6 +82,7 @@ export function CalendarStep() {
               <TimePickerItem
                 key={time}
                 disabled={!availability.availableTimes.includes(time)}
+                onClick={() => handleSelectTime(time)}
               >
                 {String(time).padStart(2, '0')}:00h
               </TimePickerItem>
