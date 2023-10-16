@@ -122,4 +122,4 @@ npm run dev
 
 # :memo: Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo de [licença](https://github.com/tavareshenrique/ignite-reactjs-v2/blob/02-ignite-timer/02-ignite-timer/LICENSE.md) para mais detalhes.
+Este projeto está licenciado sob a licença MIT - veja o arquivo de [licença](./LICENSE) para mais detalhes.
