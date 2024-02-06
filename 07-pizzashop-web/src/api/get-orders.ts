@@ -1,4 +1,10 @@
+import { faker } from '@faker-js/faker';
+
 import { api } from '@/lib/axios';
+
+export interface IGetOrdersQuery {
+  pageIndex?: number | null;
+}
 
 export type TOrderStatus =
   | 'pending'
@@ -26,14 +32,30 @@ export interface IGetOrdersResponse {
   meta: TMetaOrder;
 }
 
-export async function getOrders(): Promise<IGetOrdersResponse> {
+export async function getOrders({
+  pageIndex,
+}: IGetOrdersQuery): Promise<IGetOrdersResponse> {
   const response = await api.get<IGetOrdersResponse>('/orders', {
     params: {
-      pageIndex: 0,
+      pageIndex,
     },
   });
 
-  console.log('response', response.data);
+  const parseOrdersResponse = response.data.orders.map((order) => {
+    const createdAt = faker.date
+      .recent({
+        days: 40,
+      })
+      .toLocaleDateString();
 
-  return response.data;
+    return {
+      ...order,
+      createdAt,
+    };
+  });
+
+  return {
+    ...response.data,
+    orders: parseOrdersResponse,
+  };
 }

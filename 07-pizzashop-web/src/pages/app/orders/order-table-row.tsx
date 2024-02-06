@@ -15,8 +15,6 @@ export interface IOrderTableRowProps {
 }
 
 export function OrderTableRow({ order }: IOrderTableRowProps) {
-  console.log(order.createdAt);
-
   return (
     <TableRow>
       <TableCell>
