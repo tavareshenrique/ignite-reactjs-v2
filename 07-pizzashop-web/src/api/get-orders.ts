@@ -4,6 +4,9 @@ import { api } from '@/lib/axios';
 
 export interface IGetOrdersQuery {
   pageIndex?: number | null;
+  orderId?: string | null;
+  customerName?: string | null;
+  status?: string | null;
 }
 
 export type TOrderStatus =
@@ -34,10 +37,16 @@ export interface IGetOrdersResponse {
 
 export async function getOrders({
   pageIndex,
+  customerName,
+  orderId,
+  status,
 }: IGetOrdersQuery): Promise<IGetOrdersResponse> {
   const response = await api.get<IGetOrdersResponse>('/orders', {
     params: {
       pageIndex,
+      customerName,
+      orderId,
+      status,
     },
   });
 
