@@ -6,6 +6,7 @@ specifiers:
   '@radix-ui/react-dialog': 1.0.5
   '@radix-ui/react-dropdown-menu': 2.0.6
   '@radix-ui/react-label': 2.0.2
+  '@radix-ui/react-popover': ^1.0.7
   '@radix-ui/react-select': 2.0.0
   '@radix-ui/react-separator': 1.0.3
   '@radix-ui/react-slot': 1.0.2
@@ -29,6 +30,7 @@ specifiers:
   prettier: 3.2.5
   prettier-plugin-tailwindcss: 0.5.11
   react: 18.2.0
+  react-day-picker: ^8.10.0
   react-dom: 18.2.0
   react-helmet-async: 2.0.4
   react-hook-form: 7.50.1
@@ -48,6 +50,7 @@ dependencies:
   '@radix-ui/react-dialog': 1.0.5_jq2v3mgqnxhjqzsfthu2a3rfwm
   '@radix-ui/react-dropdown-menu': 2.0.6_jq2v3mgqnxhjqzsfthu2a3rfwm
   '@radix-ui/react-label': 2.0.2_jq2v3mgqnxhjqzsfthu2a3rfwm
+  '@radix-ui/react-popover': 1.0.7_jq2v3mgqnxhjqzsfthu2a3rfwm
   '@radix-ui/react-select': 2.0.0_jq2v3mgqnxhjqzsfthu2a3rfwm
   '@radix-ui/react-separator': 1.0.3_jq2v3mgqnxhjqzsfthu2a3rfwm
   '@radix-ui/react-slot': 1.0.2_eteh3so6nztr56vqc4nbg6qqla
@@ -60,6 +63,7 @@ dependencies:
   lucide-react: 0.330.0_react@18.2.0
   match-sorter: 6.3.4
   react: 18.2.0
+  react-day-picker: 8.10.0_jf7z3qgdkzqnphn2dw5m2mbdpa
   react-dom: 18.2.0_react@18.2.0
   react-helmet-async: 2.0.4_biqbaboplfbrettd7655fr4n2y
   react-hook-form: 7.50.1_react@18.2.0
@@ -987,6 +991,41 @@ packages:
       '@radix-ui/react-roving-focus': 1.0.4_jq2v3mgqnxhjqzsfthu2a3rfwm
       '@radix-ui/react-slot': 1.0.2_eteh3so6nztr56vqc4nbg6qqla
       '@radix-ui/react-use-callback-ref': 1.0.1_eteh3so6nztr56vqc4nbg6qqla
+      '@types/react': 18.2.55
+      '@types/react-dom': 18.2.19
+      aria-hidden: 1.2.3
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-remove-scroll: 2.5.5_eteh3so6nztr56vqc4nbg6qqla
+    dev: false
+
+  /@radix-ui/react-popover/1.0.7_jq2v3mgqnxhjqzsfthu2a3rfwm:
+    resolution: {integrity: sha512-shtvVnlsxT6faMnK/a7n0wptwBD23xc1Z5mdrtKLwVEfsEMXodS0r5s0/g5P0hX//EKYZS2sxUjqfzlg52ZSnQ==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.9
+      '@radix-ui/primitive': 1.0.1
+      '@radix-ui/react-compose-refs': 1.0.1_eteh3so6nztr56vqc4nbg6qqla
+      '@radix-ui/react-context': 1.0.1_eteh3so6nztr56vqc4nbg6qqla
+      '@radix-ui/react-dismissable-layer': 1.0.5_jq2v3mgqnxhjqzsfthu2a3rfwm
+      '@radix-ui/react-focus-guards': 1.0.1_eteh3so6nztr56vqc4nbg6qqla
+      '@radix-ui/react-focus-scope': 1.0.4_jq2v3mgqnxhjqzsfthu2a3rfwm
+      '@radix-ui/react-id': 1.0.1_eteh3so6nztr56vqc4nbg6qqla
+      '@radix-ui/react-popper': 1.1.3_jq2v3mgqnxhjqzsfthu2a3rfwm
+      '@radix-ui/react-portal': 1.0.4_jq2v3mgqnxhjqzsfthu2a3rfwm
+      '@radix-ui/react-presence': 1.0.1_jq2v3mgqnxhjqzsfthu2a3rfwm
+      '@radix-ui/react-primitive': 1.0.3_jq2v3mgqnxhjqzsfthu2a3rfwm
+      '@radix-ui/react-slot': 1.0.2_eteh3so6nztr56vqc4nbg6qqla
+      '@radix-ui/react-use-controllable-state': 1.0.1_eteh3so6nztr56vqc4nbg6qqla
       '@types/react': 18.2.55
       '@types/react-dom': 18.2.19
       aria-hidden: 1.2.3
@@ -3896,6 +3935,16 @@ packages:
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  /react-day-picker/8.10.0_jf7z3qgdkzqnphn2dw5m2mbdpa:
+    resolution: {integrity: sha512-mz+qeyrOM7++1NCb1ARXmkjMkzWVh2GL9YiPbRjKe0zHccvekk4HE+0MPOZOrosn8r8zTHIIeOUXTmXRqmkRmg==}
+    peerDependencies:
+      date-fns: ^2.28.0 || ^3.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      date-fns: 3.3.1
+      react: 18.2.0
+    dev: false
 
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
