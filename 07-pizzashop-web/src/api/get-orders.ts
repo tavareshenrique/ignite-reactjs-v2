@@ -50,6 +50,7 @@ export async function getOrders({
     },
   });
 
+  // Provisório para resolver o problema do Back-End
   const parseOrdersResponse = response.data.orders.map((order) => {
     const createdAt = faker.date
       .recent({
