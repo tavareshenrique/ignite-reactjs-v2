@@ -38,8 +38,6 @@ export async function getOrderDetails({
     })
     .toLocaleDateString();
 
-  console.log(response.data);
-
   return {
     ...response.data,
     createdAt,
