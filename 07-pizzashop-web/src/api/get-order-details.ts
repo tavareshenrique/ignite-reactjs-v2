@@ -2,11 +2,11 @@ import { faker } from '@faker-js/faker';
 
 import { api } from '@/lib/axios';
 
-interface IGetOrderDetailsParams {
+export interface IGetOrderDetailsParams {
   orderId: string;
 }
 
-export interface IOrderDetailsResponse {
+export interface IGetOrderDetailsResponse {
   id: string;
   createdAt: string;
   status: 'pending' | 'canceled' | 'processing' | 'delivering' | 'delivered';
@@ -28,8 +28,10 @@ export interface IOrderDetailsResponse {
 
 export async function getOrderDetails({
   orderId,
-}: IGetOrderDetailsParams): Promise<IOrderDetailsResponse> {
-  const response = await api.get<IOrderDetailsResponse>(`/orders/${orderId}`);
+}: IGetOrderDetailsParams): Promise<IGetOrderDetailsResponse> {
+  const response = await api.get<IGetOrderDetailsResponse>(
+    `/orders/${orderId}`,
+  );
 
   // Provisório para resolver o problema do Back-End
   const createdAt = faker.date
