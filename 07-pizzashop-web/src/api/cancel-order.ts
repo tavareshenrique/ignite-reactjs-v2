@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios';
 
-interface ICancelOrderParams {
+export interface ICancelOrderParams {
   orderId: string;
 }
 

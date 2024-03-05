@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios';
 
-interface IDeliverOrderParams {
+export interface IDeliverOrderParams {
   orderId: string;
 }
 
