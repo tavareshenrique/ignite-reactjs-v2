@@ -14,7 +14,7 @@ const signInForm = z.object({
   email: z.string().email(),
 });
 
-type TSignInForm = z.infer<typeof signInForm>;
+type ISignInForm = z.infer<typeof signInForm>;
 
 export function SignIn() {
   const [searchParams] = useSearchParams();
@@ -23,7 +23,7 @@ export function SignIn() {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<TSignInForm>({
+  } = useForm<ISignInForm>({
     defaultValues: {
       email: searchParams.get('email') ?? '',
     },
@@ -33,17 +33,21 @@ export function SignIn() {
     mutationFn: signIn,
   });
 
-  async function handleSignIn(data: TSignInForm) {
-    await authenticate({
-      email: data.email,
-    });
+  async function handleSignIn(data: ISignInForm) {
+    try {
+      await authenticate({ email: data.email });
 
-    toast.success('Enviamos um link de autenticação para seu e-mail!', {
-      action: {
-        label: 'Reenviar e-mail',
-        onClick: () => handleSignIn(data),
-      },
-    });
+      toast.success('Enviamos um link de autenticação para seu e-mail.', {
+        action: {
+          label: 'Reenviar',
+          onClick: () => {
+            handleSignIn(data);
+          },
+        },
+      });
+    } catch (error) {
+      toast.error('Credenciais inválidas.');
+    }
   }
 
   return (
@@ -51,26 +55,27 @@ export function SignIn() {
       <Helmet title="Login" />
 
       <div className="p-8">
-        <Button asChild variant="ghost" className="absolute right-4 top-8">
-          <Link to="/sign-up">Novo establecimento</Link>
+        <Button variant="ghost" asChild className="absolute right-8 top-8">
+          <Link to="/sign-up">Novo estabelecimento</Link>
         </Button>
 
         <div className="flex w-[350px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">
-              Acessar Painel
+              Acessar painel
             </h1>
             <p className="text-sm text-muted-foreground">
               Acompanhe suas vendas pelo painel do parceiro!
             </p>
           </div>
-          <form onSubmit={handleSubmit(handleSignIn)} className="space-y-4">
+
+          <form className="space-y-4" onSubmit={handleSubmit(handleSignIn)}>
             <div className="space-y-2">
               <Label htmlFor="email">Seu e-mail</Label>
               <Input id="email" type="email" {...register('email')} />
             </div>
 
-            <Button className="w-full" type="submit" disabled={isSubmitting}>
+            <Button disabled={isSubmitting} className="w-full" type="submit">
               Acessar painel
             </Button>
           </form>
