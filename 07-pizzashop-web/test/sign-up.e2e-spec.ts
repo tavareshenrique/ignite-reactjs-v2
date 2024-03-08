@@ -12,7 +12,7 @@ test('sign up successfully', async ({ page }) => {
 
   const toast = page.getByText('Restaurante cadastrado com sucesso');
 
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
 });
 
 test('sign up wrong credentials', async ({ page }) => {
@@ -29,7 +29,7 @@ test('sign up wrong credentials', async ({ page }) => {
     'Erro ao cadastrar, tente novamente mais tarde!',
   );
 
-  expect(toast).toBeVisible();
+  await expect(toast).toBeVisible();
 });
 
 test('navigate to new login paage', async ({ page }) => {
